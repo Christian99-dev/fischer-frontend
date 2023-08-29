@@ -5,7 +5,8 @@ import GlobalStyle from "../theme/global";
 const Root = ({ children }) => {
   return (
     <LayoutStyle>
-      <GlobalStyle>{children}</GlobalStyle>
+      <GlobalStyle />
+      {children}
     </LayoutStyle>
   );
 };
@@ -13,11 +14,5 @@ const Root = ({ children }) => {
 export default Root;
 
 const LayoutStyle = styled.div`
-  margin: 0;
-  padding: 0;
-  background-color: salmon;
-
-  * {
-    box-sizing: border-box;
-  }
+  height: 100vh;
 `;
