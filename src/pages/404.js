@@ -1,8 +1,8 @@
 import * as React from "react";
-import Layout from "../components/Layout";
+import Root from "../components/Root";
 
 const NotFoundPage = () => {
-  return <Layout>Error</Layout>;
+  return <Root>Error</Root>;
 };
 
 export default NotFoundPage;

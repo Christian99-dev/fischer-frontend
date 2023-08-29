@@ -11,6 +11,7 @@ const GlobalStyle = createGlobalStyle`
         border: none;
         line-height: 1;
         box-sizing: border-box;
+        background-color: salmon;
     }
     
     ${colors}
