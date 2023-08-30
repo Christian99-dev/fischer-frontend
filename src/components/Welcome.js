@@ -1,6 +1,7 @@
 import React from "react";
 import { FetchWelcome } from "../api/fetch";
 import { styled } from "styled-components";
+import ImageFilter from "./ImageFilter";
 
 const Welcome = () => {
   const { data, loading } = FetchWelcome();
@@ -8,12 +9,15 @@ const Welcome = () => {
     <WelcomeStyle>
       {!loading && (
         <React.Fragment>
-          <h1 className="title">{data.title}</h1>
-          <h2 className="subtitle">{data.subtitle}</h2>
-          <img
-            className="background"
+          <div className="text-wrapper">
+            <h1 className="title">{data.title}</h1>
+            <h2 className="subtitle">{data.subtitle}</h2>
+          </div>
+          <ImageFilter
             alt="Hintergrundbild, welches einen Handwerker bei der Arbeit zeigt."
             src={data.background}
+            color="var(--black)"
+            opacity="0.3"
           />
         </React.Fragment>
       )}
@@ -24,19 +28,32 @@ const Welcome = () => {
 export default Welcome;
 
 const WelcomeStyle = styled.section`
-  height: 100vh;
   position: relative;
+  height: 100vh;
+  color: var(--white);
+  display: flex;
+  justify-content: center;
 
-  .title {
-  }
-  .subtitle {
+  .text-wrapper {
+    position: relative;
+    top: 35%;
+    text-align: center;
+    height: min-content;
+    .title {
+      position: relative;
+      z-index: 15;
+      font-size: var(--fs-bigtitle);
+    }
+
+    .subtitle {
+      position: relative;
+      z-index: 15;
+      font-size: var(--fs-3);
+    }
   }
 
-  .background {
-    z-index: 10;
+  .image-filter {
+    top: 0;
     position: absolute;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
   }
 `;

@@ -3,6 +3,7 @@ import colors from "./colors";
 import spacing from "./spacing";
 import font from "./font";
 import variables from "./variables";
+import moreFont from "./more-font";
 
 const GlobalStyle = createGlobalStyle`
     *{
@@ -11,13 +12,13 @@ const GlobalStyle = createGlobalStyle`
         border: none;
         line-height: 1;
         box-sizing: border-box;
-        background-color: salmon;
     }
     
     ${colors}
     ${spacing}
     ${font}
     ${variables}
+    ${moreFont}
     
 `;
 
