@@ -1,7 +1,7 @@
 import React from "react";
 import { FetchWelcome } from "../api/fetch";
 import { styled } from "styled-components";
-import ImageFilter from "./ImageFilter";
+import ImageFilter from "../components/ImageFilter";
 
 const Welcome = () => {
   const { data, loading } = FetchWelcome();

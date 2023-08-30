@@ -9,6 +9,7 @@ const ImageFilter = ({
   objectFit = "cover",
   opacity = 0.5,
   hover,
+  loading,
 }) => {
   return (
     <ImageFilterStyle
@@ -18,8 +19,9 @@ const ImageFilter = ({
       objectfit={objectFit}
       hover={hover}
     >
-      <div className="filter" />
-      <img alt={alt} src={src} />
+      {loading && <div className="loader" />}
+      {!loading && <div className="filter" />}
+      {!loading && <img alt={alt} src={src} />}
     </ImageFilterStyle>
   );
 };
@@ -27,6 +29,7 @@ const ImageFilter = ({
 export default ImageFilter;
 
 const ImageFilterStyle = styled.div`
+  position: relative;
   overflow: hidden;
   width: 100%;
   height: 100%;
@@ -38,6 +41,7 @@ const ImageFilterStyle = styled.div`
     }
   }
 
+  .loader,
   .filter,
   img {
     position: absolute;
@@ -54,6 +58,12 @@ const ImageFilterStyle = styled.div`
   .filter {
     background-color: ${(props) => props.color};
     opacity: ${(props) => props.opacity};
+    z-index: 11;
+  }
+
+  .loader {
+    background-color: ${(props) => props.color};
+    opacity: 1;
     z-index: 11;
   }
 `;

@@ -1,0 +1,14 @@
+{
+  "projekte": {
+    "name": "PROJEKTE",
+    "background" : "/mock/images/worker.jpg"
+  },
+  "leistungen": {
+    "name": "LEISTUNGEN",
+    "background" : "/mock/images/wood.png"
+  },
+  "ueberuns": {
+    "name": "ÜBER UNS",
+    "background" : "/mock/images/kreuz.jpg"
+  }
+}
