@@ -5,16 +5,26 @@ def create_type_scale(base, scale, max):
         out += f"\t\t--fs-{i}: {curr}px;\n"
         curr = round(curr * scale)
     return out
-      
-def create_media(device, base, scale, max):
-    return f"\t\t@media ${{device.{device}}} {{\n{create_type_scale(base, scale, max)}\t\t}}\n\n"
 
-with open("../../theme/font.js", "w+") as cssfile:
-  head = "import { css } from 'styled-components';\nimport { device } from './breakpoints';\n\nexport default css`\n  :root {\n"
-  footer = "  }\n`;"
-  dynamic = create_media("desktopXL", 16, 1.4, 6) + create_type_scale(16, 1.333, 6) + "\n" + create_media("laptop", 16, 1.3, 6) + create_media("tablet", 16, 1.25, 6) + create_media("mobile", 16, 1.2, 6)
-  cssfile.write(head + dynamic + footer)
+def create_media(device, values):
+    return f"\t@media ${{device.{device}}} {{\n{create_type_scale(*values)}\t}}\n\n"
 
+# Definiere die Daten in einem Dictionary
+size = 6
+font_data = {
+    "desktopXL":    (16, 1.333,   size),
+    "desktop":      (16, 1.25, size),
+    "laptop":       (16, 1.2,   size),
+    "tablet":       (16, 1.125,  size),
+    "mobile":       (16, 1.067,   size)
+}
+
+with open("../../theme/typescaleDynamic.js", "w+") as cssfile:
+    head = "import { css } from 'styled-components';\nimport { device } from './breakpoints';\n\nexport default css`\n  :root {\n"
+    footer = "}\n`;"
+    dynamic = ""
     
-
-
+    for device, values in font_data.items():
+        dynamic += create_media(device, values)
+    
+    cssfile.write(head + dynamic + footer)

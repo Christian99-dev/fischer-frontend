@@ -1,9 +1,9 @@
 import { createGlobalStyle } from "styled-components";
 import colors from "./colors";
 import spacing from "./spacing";
-import font from "./font";
+import typescale from "./typescaleDynamic";
 import variables from "./variables";
-import moreFont from "./more-font";
+import font from "./font";
 
 const GlobalStyle = createGlobalStyle`
     *{
@@ -12,13 +12,14 @@ const GlobalStyle = createGlobalStyle`
         border: none;
         line-height: 1;
         box-sizing: border-box;
+        font-family: 'Lato', normal;
     }
     
     ${colors}
     ${spacing}
-    ${font}
     ${variables}
-    ${moreFont}
+    ${typescale}
+    ${font}
     
 `;
 

@@ -10,8 +10,8 @@ const Welcome = () => {
       {!loading && (
         <React.Fragment>
           <div className="text-wrapper">
-            <h1 className="title">{data.title}</h1>
-            <h2 className="subtitle">{data.subtitle}</h2>
+            <h1>{data.title}</h1>
+            <h2>{data.subtitle}</h2>
           </div>
           <ImageFilter
             alt="Hintergrundbild, welches einen Handwerker bei der Arbeit zeigt."
@@ -39,16 +39,20 @@ const WelcomeStyle = styled.section`
     top: 35%;
     text-align: center;
     height: min-content;
-    .title {
+    h1 {
       position: relative;
       z-index: 15;
       font-size: var(--fs-bigtitle);
+      font-family: 'Lobster Two', normal;
+      font-weight: 400;
     }
 
-    .subtitle {
+    h2 {
       position: relative;
       z-index: 15;
       font-size: var(--fs-3);
+      font-weight: 500;
+      letter-spacing: 1.5px;
     }
   }
 
