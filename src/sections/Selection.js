@@ -5,12 +5,11 @@ import ImageFilter from "../components/ImageFilter";
 import Icon from "../components/Icon";
 
 const Selection = () => {
-  const { data } = FetchSelection();
   return (
     <SelectionStyle>
-      <Card data={data} identifier="projekte" />
-      <Card data={data} identifier="leistungen" />
-      <Card data={data} identifier="ueberuns" />
+      <Card identifier="projekte" />
+      <Card identifier="leistungen" />
+      <Card identifier="ueberuns" />
     </SelectionStyle>
   );
 };
@@ -26,9 +25,11 @@ const SelectionStyle = styled.section`
   gap: var(--space-lg);
 `;
 
-const Card = ({ data, identifier }) => {
+const Card = ({ identifier }) => {
+  const { data } = FetchSelection();
+  const background = data && data[identifier].background;
+
   return (
-    data && (
       <CardStyle>
         <div className="textbox">
           {data && <h2>{data[identifier].name}</h2>}
@@ -36,14 +37,14 @@ const Card = ({ data, identifier }) => {
         </div>
         <ImageFilter
           color="var(--blue)"
-          src={data[identifier].background}
+          src={background}
           opacity={0.55}
           alt={data ? data[identifier].name + " Auswahlbild" : "Auswahlbild"}
           loading={!data}
           hover
         />
       </CardStyle>
-    )
+    
   );
 };
 

@@ -8,19 +8,18 @@ const Welcome = () => {
   return (
     <WelcomeStyle>
       {!loading && (
-        <React.Fragment>
-          <div className="text-wrapper">
-            <h1>{data.title}</h1>
-            <h2>{data.subtitle}</h2>
-          </div>
-          <ImageFilter
-            alt="Hintergrundbild, welches einen Handwerker bei der Arbeit zeigt."
-            src={data.background}
-            color="var(--black)"
-            opacity="0.3"
-          />
-        </React.Fragment>
+        <div className="text-wrapper">
+          <h1>{data.title}</h1>
+          <h2>{data.subtitle}</h2>
+        </div>
       )}
+      <ImageFilter
+        alt="Hintergrundbild, welches einen Handwerker bei der Arbeit zeigt."
+        src={!loading && data.background}
+        color="var(--black)"
+        opacity="0.3"
+        loading={loading}
+      />
     </WelcomeStyle>
   );
 };
@@ -43,7 +42,7 @@ const WelcomeStyle = styled.section`
       position: relative;
       z-index: 15;
       font-size: var(--fs-bigtitle);
-      font-family: 'Lobster Two', normal;
+      font-family: "Lobster Two", normal;
       font-weight: 400;
       padding-bottom: var(--space-sm);
     }
