@@ -10,5 +10,6 @@ export default css`
     --space-xl: 52px;
     --space-xxl: 80px;
     --space-xxxl: 160px;
+    --space-giant: 480px;
   }
 `;

@@ -1,12 +1,12 @@
 import React from "react";
 import { css, styled } from "styled-components";
 
-const Input = ({ text, value, textarea }) => {
+const Input = ({ text, value, textarea, className }) => {
 
     if(textarea)
-        return <TextareaStyle value={value} placeholder={text}/>
+        return <TextareaStyle className={className} value={value} placeholder={text}/>
     else 
-        return <InputStyle value={value} placeholder={text}/>
+        return <InputStyle className={className} value={value} placeholder={text}/>
 
 };
 
@@ -45,6 +45,7 @@ const InputStyle = styled.input`
 
 const TextareaStyle = styled.textarea`
   ${BaseStyle}
+  height: 100%;
 `;
 
 export default Input;
