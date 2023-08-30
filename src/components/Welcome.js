@@ -33,7 +33,7 @@ const WelcomeStyle = styled.section`
   color: var(--white);
   display: flex;
   justify-content: center;
-
+  padding: var(--space-xl);
   .text-wrapper {
     position: relative;
     top: 35%;
@@ -45,6 +45,7 @@ const WelcomeStyle = styled.section`
       font-size: var(--fs-bigtitle);
       font-family: 'Lobster Two', normal;
       font-weight: 400;
+      padding-bottom: var(--space-sm);
     }
 
     h2 {
