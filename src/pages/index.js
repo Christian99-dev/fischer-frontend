@@ -16,4 +16,7 @@ const index = () => {
   );
 };
 
+
+export const Head = () => <link rel="stylesheet" type="text/css" href="/fonts/fontface.css" />
+
 export default index;

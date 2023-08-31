@@ -7,6 +7,12 @@ const Welcome = () => {
   const { data, loading } = FetchWelcome();
   return (
     <WelcomeStyle>
+      {loading && (
+        <div className="text-wrapper">
+          <h2>Einen moment noch...</h2>
+        </div>
+      )}
+
       {!loading && (
         <div className="text-wrapper">
           <h1>{data.title}</h1>

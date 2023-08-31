@@ -19,7 +19,7 @@ const ImageFilter = ({
       objectfit={objectFit}
       hover={hover}
     >
-      {loading && <div className="loader" />}
+      <div className={"loader " + loading} />
       {!loading && <div className="filter" />}
       {!loading && <img alt={alt} src={src} />}
     </ImageFilterStyle>
@@ -62,8 +62,17 @@ const ImageFilterStyle = styled.div`
   }
 
   .loader {
-    background-color: ${(props) => props.color};
-    opacity: 1;
+
+    transition: opacity 2s ease;
+    &.true{
+      background-color: ${(props) => props.color};
+      opacity: 1;
+    }
+
+    &.false{
+      background-color: ${(props) => props.color};
+      opacity: 0;
+    }
     z-index: 11;
   }
 `;
