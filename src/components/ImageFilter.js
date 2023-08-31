@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { styled } from "styled-components";
 
 const ImageFilter = ({
@@ -11,6 +11,7 @@ const ImageFilter = ({
   hover,
   loading,
 }) => {
+  const [imgLoaded, setImgLoaded] = useState(false);
   return (
     <ImageFilterStyle
       className={className}
@@ -19,9 +20,17 @@ const ImageFilter = ({
       objectfit={objectFit}
       hover={hover}
     >
-      <div className={"loader " + loading} />
-      {!loading && <div className="filter" />}
-      {!loading && <img alt={alt} src={src} />}
+      <div className={"filter " + imgLoaded} />
+      {!loading && (
+        <img
+          alt={alt}
+          src={src}
+          onLoad={() => {
+            console.log("test");
+            setImgLoaded(true);
+          }}
+        />
+      )}
     </ImageFilterStyle>
   );
 };
@@ -41,7 +50,6 @@ const ImageFilterStyle = styled.div`
     }
   }
 
-  .loader,
   .filter,
   img {
     position: absolute;
@@ -57,22 +65,15 @@ const ImageFilterStyle = styled.div`
 
   .filter {
     background-color: ${(props) => props.color};
-    opacity: ${(props) => props.opacity};
     z-index: 11;
-  }
 
-  .loader {
-
-    transition: opacity 2s ease;
-    &.true{
-      background-color: ${(props) => props.color};
+    &.false {
       opacity: 1;
     }
 
-    &.false{
-      background-color: ${(props) => props.color};
-      opacity: 0;
+    &.true {
+      opacity: ${(props) => props.opacity};
+      transition: opacity 0.4s ease-in;
     }
-    z-index: 11;
   }
 `;

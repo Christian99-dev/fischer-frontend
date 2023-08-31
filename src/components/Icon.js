@@ -1,11 +1,30 @@
 import React from "react";
-import addIcon from "../../static/Icons/add.svg";
 import { responsiveCSS } from "../services/Theme/responsive";
 import { styled } from "styled-components";
+import addIcon from "../../static/Icons/add.svg";
+import closeIcon from "../../static/Icons/close.svg";
+import downIcon from "../../static/Icons/down.svg";
+import houseIcon from "../../static/Icons/house.svg";
+import leftIcon from "../../static/Icons/left.svg";
+import rightIcon from "../../static/Icons/right.svg";
 
-const Icon = ({ name }) => {
-  const icons = new Map([["add", addIcon]]);
-  return <IconStyle className="icon" src={icons.get(name)} alt={name + " icon"}></IconStyle>;
+const Icon = ({ name, className="icon" }) => {
+  const icons = new Map([
+    ["add", addIcon],
+    ["close", closeIcon],
+    ["down", downIcon],
+    ["house", houseIcon],
+    ["left", leftIcon],
+    ["right", rightIcon],
+  ]);
+
+  return (
+    <IconStyle
+      className={className}
+      src={icons.get(name)}
+      alt={name + " icon"}
+    ></IconStyle>
+  );
 };
 
 const IconStyle = styled.img`

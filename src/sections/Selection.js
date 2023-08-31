@@ -6,7 +6,7 @@ import Icon from "../components/Icon";
 
 const Selection = () => {
   return (
-    <SelectionStyle>
+    <SelectionStyle id="selection">
       <Card identifier="projekte" />
       <Card identifier="leistungen" />
       <Card identifier="ueberuns" />
@@ -30,21 +30,20 @@ const Card = ({ identifier }) => {
   const background = data && data[identifier].background;
 
   return (
-      <CardStyle>
-        <div className="textbox">
-          {data && <h2>{data[identifier].name}</h2>}
-          <Icon name="add" />
-        </div>
-        <ImageFilter
-          color="var(--blue)"
-          src={background}
-          opacity={0.55}
-          alt={data ? data[identifier].name + " Auswahlbild" : "Auswahlbild"}
-          loading={!data}
-          hover
-        />
-      </CardStyle>
-    
+    <CardStyle>
+      <div className="textbox">
+        {data && <h2>{data[identifier].name}</h2>}
+        <Icon name="add" />
+      </div>
+      <ImageFilter
+        color="var(--blue)"
+        src={background}
+        opacity={0.55}
+        alt={data ? data[identifier].name + " Auswahlbild" : "Auswahlbild"}
+        loading={!data}
+        hover
+      />
+    </CardStyle>
   );
 };
 
@@ -53,6 +52,7 @@ const CardStyle = styled.div`
   display: flex;
   justify-content: center;
   cursor: pointer;
+  background-color: black;
 
   .textbox {
     pointer-events: none;
