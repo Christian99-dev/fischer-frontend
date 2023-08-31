@@ -35,7 +35,7 @@ export const useFetchTimeSimulation = (url, time) => {
     }, time); // 2000 Millisekunden = 2 Sekunden
 
     return () => clearTimeout(delay); // Aufräumen, um Verzögerung zu stoppen, wenn die Komponente entladen wird
-  }, [url]);
+  }, [url, time]);
 
   return { data, error, loading };
 };

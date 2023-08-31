@@ -1,5 +1,5 @@
 import React from "react";
-import { FetchSelection } from "../api/fetch";
+import { FetchSelection } from "../data/fetch";
 import { styled } from "styled-components";
 import ImageFilter from "../components/ImageFilter";
 import Icon from "../components/Icon";

@@ -3,8 +3,8 @@ import { styled } from "styled-components";
 
 const Button = ({ text, onClick }) => {
   return (
-    <ButtonStyle>
-      <div className="inner" onClick={onClick}>{text}</div>
+    <ButtonStyle onClick={onClick}>
+      <div className="inner">{text}</div>
     </ButtonStyle>
   );
 };
