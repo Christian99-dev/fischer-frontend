@@ -8,7 +8,7 @@ import houseIcon from "../../static/Icons/house.svg";
 import leftIcon from "../../static/Icons/left.svg";
 import rightIcon from "../../static/Icons/right.svg";
 
-const Icon = ({ name, className="icon" }) => {
+const Icon = ({ zIndex, name, onClick, className = "icon" }) => {
   const icons = new Map([
     ["add", addIcon],
     ["close", closeIcon],
@@ -20,6 +20,8 @@ const Icon = ({ name, className="icon" }) => {
 
   return (
     <IconStyle
+      style={{ zIndex: zIndex }}
+      onClick={onClick}
       className={className}
       src={icons.get(name)}
       alt={name + " icon"}

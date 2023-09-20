@@ -12,3 +12,7 @@ export const FetchSelection = () => {
     return useFetchTimeSimulation(endpoints.selection, 1000);
 }
 
+export const FetchAboutUs = () => {
+    return useFetchTimeSimulation(endpoints.aboutus, 1000);
+}
+

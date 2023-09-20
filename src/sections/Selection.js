@@ -1,15 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import { FetchSelection } from "../data/fetch";
 import { styled } from "styled-components";
 import ImageFilter from "../components/ImageFilter";
 import Icon from "../components/Icon";
+import AboutUsModal from "./AboutUsModal";
 
 const Selection = () => {
+  const [showAboutUs, setShowAboutUs] = useState(false);
   return (
     <SelectionStyle id="selection">
-      <Card identifier="projekte" />
-      <Card identifier="leistungen" />
-      <Card identifier="ueberuns" />
+      <Card identifier="projekte" onClick={() => {}} />
+      <Card identifier="leistungen" onClick={() => {}} />
+      <Card identifier="ueberuns" onClick={() => setShowAboutUs(true)} />
+      <AboutUsModal
+        open={showAboutUs}
+        closeButton={() => setShowAboutUs(false)}
+      />
     </SelectionStyle>
   );
 };
@@ -25,23 +31,24 @@ const SelectionStyle = styled.section`
   gap: var(--space-lg);
 `;
 
-const Card = ({ identifier }) => {
+const Card = ({ identifier, onClick }) => {
   const { data } = FetchSelection();
   const background = data && data[identifier].background;
 
   return (
-    <CardStyle>
+    <CardStyle onClick={onClick}>
       <div className="textbox">
         {data && <h2>{data[identifier].name}</h2>}
         <Icon name="add" />
       </div>
       <ImageFilter
+        background="true"
         color="var(--blue)"
         src={background}
         opacity={0.55}
         alt={data ? data[identifier].name + " Auswahlbild" : "Auswahlbild"}
         loading={!data}
-        hover
+        hover="true"
       />
     </CardStyle>
   );
@@ -73,10 +80,5 @@ const CardStyle = styled.div`
       position: relative;
       z-index: 20;
     }
-  }
-
-  .image-filter {
-    position: absolute;
-    top: 0;
   }
 `;

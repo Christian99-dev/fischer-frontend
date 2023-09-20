@@ -59,7 +59,7 @@ export default Welcome;
 
 const WelcomeStyle = styled.section`
   position: relative;
-  height: 101vh;
+  height: 100vh;
   color: var(--white);
   display: flex;
   justify-content: center;

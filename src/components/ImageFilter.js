@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { styled } from "styled-components";
 
 const ImageFilter = ({
+  background,
   src,
   alt,
   color,
@@ -9,12 +10,12 @@ const ImageFilter = ({
   objectFit = "cover",
   opacity = 0.5,
   hover,
-  loading,
+  loading
 }) => {
-  const [imgLoaded, setImgLoaded] = useState(false);
+  const [imgLoaded, setImgLoaded] = useState(!loading);
   return (
     <ImageFilterStyle
-      className={className}
+      className={!background ? className : className + " background"}
       color={color}
       opacity={opacity}
       objectfit={objectFit}
@@ -26,7 +27,6 @@ const ImageFilter = ({
           alt={alt}
           src={src}
           onLoad={() => {
-            console.log("test");
             setImgLoaded(true);
           }}
         />
@@ -42,6 +42,11 @@ const ImageFilterStyle = styled.div`
   overflow: hidden;
   width: 100%;
   height: 100%;
+
+  &.background{
+    position: absolute;
+    top: 0;
+  }
 
   &:hover {
     img {
