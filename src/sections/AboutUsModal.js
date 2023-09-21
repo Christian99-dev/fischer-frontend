@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Modal from "../components/Modal";
 import { styled } from "styled-components";
 import ImageFilter from "../components/ImageFilter";
@@ -7,7 +7,7 @@ import { FetchAboutUs } from "../data/fetch";
 const AboutUsModal = ({ open, closeButton }) => {
   const { data, loading } = FetchAboutUs();
   return (
-    <Modal iconZindex={130} open={open} closeButton={closeButton}>
+    <Modal open={open} closeButton={closeButton}>
       <AboutUsModalStyle>
         <ImageFilter
           src={!loading && data.background}
@@ -32,16 +32,6 @@ export default AboutUsModal;
 
 const AboutUsModalStyle = styled.div`
   color: white;
-
-  .image-filter{
-    img{
-      z-index: 110;
-    }
-    .filter{
-      z-index: 111;
-    }
-  }
-
   .textsection{
     position: absolute;
     z-index: 120;

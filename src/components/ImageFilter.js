@@ -10,7 +10,9 @@ const ImageFilter = ({
   objectFit = "cover",
   opacity = 0.5,
   hover,
-  loading
+  loading,
+  imageZindex,
+  filterZindex,
 }) => {
   const [imgLoaded, setImgLoaded] = useState(!loading);
   return (

@@ -16,3 +16,12 @@ export const FetchAboutUs = () => {
     return useFetchTimeSimulation(endpoints.aboutus, 1000);
 }
 
+export const FetchLeistungen = () => {
+    return useFetchTimeSimulation(endpoints.leistungen, 1000);
+}
+
+export const FetchProjects = () => {
+    return useFetchTimeSimulation(endpoints.projects, 1000);
+}
+
+

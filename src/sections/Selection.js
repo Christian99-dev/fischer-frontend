@@ -4,17 +4,29 @@ import { styled } from "styled-components";
 import ImageFilter from "../components/ImageFilter";
 import Icon from "../components/Icon";
 import AboutUsModal from "./AboutUsModal";
+import LeistungenModal from "./LeistungenModal";
+import ProjectsModal from "./ProjectsModal";
 
 const Selection = () => {
   const [showAboutUs, setShowAboutUs] = useState(false);
+  const [showLeistungen, setShowLeistungen] = useState(false);
+  const [showProjects, setShowProjects] = useState(false);
   return (
     <SelectionStyle id="selection">
-      <Card identifier="projekte" onClick={() => {}} />
-      <Card identifier="leistungen" onClick={() => {}} />
+      <Card identifier="projekte" onClick={() => setShowProjects(true)} />
+      <Card identifier="leistungen" onClick={() => setShowLeistungen(true)} />
       <Card identifier="ueberuns" onClick={() => setShowAboutUs(true)} />
       <AboutUsModal
         open={showAboutUs}
         closeButton={() => setShowAboutUs(false)}
+      />
+      <LeistungenModal
+        open={showLeistungen}
+        closeButton={() => setShowLeistungen(false)}
+      />
+      <ProjectsModal
+        open={showProjects}
+        closeButton={() => setShowProjects(false)}
       />
     </SelectionStyle>
   );

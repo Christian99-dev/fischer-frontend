@@ -1,0 +1,41 @@
+{
+  "kategorien": [
+    {
+      "name": "Projektkategorie 1",
+      "background": "/mock/images/worker.jpg",
+      "projekte": [
+        {
+          "name": "Haus",
+          "bild": "/mock/images/gang.jpg",
+          "beschreibung": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua."
+        },
+        {
+          "name": "Restaurierung",
+          "bild": "/mock/images/gang.jpg",
+          "beschreibung": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua."
+        },
+        {
+          "name": "Irgendwas",
+          "bild": "/mock/images/kreuz.jpg",
+          "beschreibung": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua."
+        }
+      ]
+    },
+    {
+        "name": "Projektkategorie 2",
+        "background": "/mock/images/wood.png",
+        "projekte": [
+          {
+            "name": "Restaurierung",
+            "bild": "/mock/images/gang.jpg",
+            "beschreibung": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua."
+          },
+          {
+            "name": "Irgendwas anderes",
+            "bild": "/mock/images/worker2.jpg",
+            "beschreibung": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua."
+          }
+        ]
+      }
+  ]
+}

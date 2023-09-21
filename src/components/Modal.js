@@ -4,24 +4,23 @@ import Icon from "./Icon";
 
 const Modal = ({ noBackground, open, children, closeButton, layer = 1 }) => {
   return (
-    open && (
-      <ModalStyle style={{ zIndex: layer * 100 }} noBackground={noBackground}>
-        <div className="box">
-          <Icon
-            zIndex={layer * 100 + 50 }
-            name="close"
-            onClick={closeButton}
-          />
-          {children}
-        </div>
-      </ModalStyle>
-    )
+    <ModalStyle
+      open={open}
+      style={{ zIndex: layer * 100 }}
+      noBackground={noBackground}
+    >
+      <div className="box">
+        <Icon zIndex={layer * 100 + 50} name="close" onClick={closeButton} />
+        {children}
+      </div>
+    </ModalStyle>
   );
 };
 
 export default Modal;
 
 const ModalStyle = styled.div`
+  display: ${(props) => props.open ? "inherit" : "none"};
   position: fixed;
   top: 0;
   left: 0;
