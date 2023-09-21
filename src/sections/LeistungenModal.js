@@ -20,9 +20,10 @@ const LeistungenModal = ({ open, closeButton }) => {
           alt={"Projecte Hintergrundbild"}
         />
         {data && (
-          <div className="grid">
+          <div className={"grid _" + data.leistungen.length}>
             {data.leistungen
               .sort((a, b) => a.order - b.order)
+
               .map((leistung, index) => (
                 <BoxStyle
                   pheight={heights[index]}
@@ -34,8 +35,12 @@ const LeistungenModal = ({ open, closeButton }) => {
                   <p
                     className="height-calculation"
                     ref={(el) => {
-                      if(el && el?.clientHeight !== 0 && heights.length < data.leistungen.length){
-                        setHeights(old => [...old, el.clientHeight])
+                      if (
+                        el &&
+                        el?.clientHeight !== 0 &&
+                        heights.length < data.leistungen.length
+                      ) {
+                        setHeights((old) => [...old, el.clientHeight]);
                       }
                     }}
                   >
@@ -88,14 +93,6 @@ const BoxStyle = styled.div`
     }
   }
 
-  &:not(:nth-child(3n)) {
-    border-right: white solid 1px;
-  }
-
-  &:not(:nth-last-child(-n + 3)) {
-    border-bottom: white solid 1px;
-  }
-
   &:hover {
     background-color: var(--blue);
     transition: background-color 0.2s ease-in;
@@ -111,13 +108,103 @@ const LeistungenModalStyle = styled.div`
   height: 100%;
   .grid {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
     z-index: 120;
     position: relative;
     padding: var(--space-xxl);
     color: white;
     width: 100%;
     height: 100%;
+
+    &._2 {
+      display: flex;
+      flex-direction: row;
+
+      .leistung:nth-child(1) {
+        border-right: white solid 1px;
+      }
+    }
+
+    &._3 {
+      display: flex;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      grid-template-areas:
+        "a a a a"
+        "b b c c";
+
+      .leistung:nth-child(1) {
+        border-bottom: white solid 1px;
+        grid-area: a;
+      }
+      .leistung:nth-child(2) {
+        border-right: white solid 1px;
+        grid-area: b;
+      }
+      .leistung:nth-child(3) {
+        grid-area: c;
+      }
+    }
+
+    &._4 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+
+      .leistung:nth-child(1) {
+        border-right: white solid 1px;
+        border-bottom: white solid 1px;
+      }
+
+      .leistung:nth-child(2) {
+        border-bottom: white solid 1px;
+      }
+
+      .leistung:nth-child(3) {
+        border-right: white solid 1px;
+      }
+    }
+
+    &._5 {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      grid-template-areas:
+        "a a a b b b"
+        "c c d d e e";
+
+      .leistung:nth-child(1) {
+        border-bottom: white solid 1px;
+        border-right: white solid 1px;
+        grid-area: a;
+      }
+      .leistung:nth-child(2) {
+        border-bottom: white solid 1px;
+        grid-area: b;
+      }
+      .leistung:nth-child(3) {
+        border-right: white solid 1px;
+        grid-area: c;
+      }
+      .leistung:nth-child(4) {
+        border-right: white solid 1px;
+        grid-area: d;
+      }
+      .leistung:nth-child(5) {
+        grid-area: e;
+      }
+    }
+
+    &._6 {
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      .leistung:not(:nth-child(3n)) {
+        border-right: white solid 1px;
+      }
+
+      .leistung:not(:nth-last-child(-n + 3)) {
+        border-bottom: white solid 1px;
+      }
+    }
   }
 `;
