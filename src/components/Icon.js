@@ -30,7 +30,7 @@ const Icon = ({ zIndex, name, onClick, className = "icon" }) => {
 };
 
 const IconStyle = styled.img`
-  ${responsiveCSS("height", 60, 50, 40, 30, 25)}
+  ${responsiveCSS("height", 50, 40, 30, 20, 15)}
 `;
 
 export default Icon;

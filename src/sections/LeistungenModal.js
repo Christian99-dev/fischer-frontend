@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useState } from "react";
 import Modal from "../components/Modal";
 import styled from "styled-components";
 import { FetchLeistungen } from "../data/fetch";
@@ -7,7 +7,6 @@ import ImageFilter from "../components/ImageFilter";
 const LeistungenModal = ({ open, closeButton }) => {
   const { data } = FetchLeistungen();
   const [heights, setHeights] = useState([]);
-  console.log("reload", heights);
   return (
     <Modal open={open} closeButton={closeButton}>
       <LeistungenModalStyle>
@@ -23,7 +22,6 @@ const LeistungenModal = ({ open, closeButton }) => {
           <div className={"grid _" + data.leistungen.length}>
             {data.leistungen
               .sort((a, b) => a.order - b.order)
-
               .map((leistung, index) => (
                 <BoxStyle
                   pheight={heights[index]}
@@ -31,9 +29,12 @@ const LeistungenModal = ({ open, closeButton }) => {
                   className="leistung"
                 >
                   <h3>{leistung.title}</h3>
-                  <p className="main">{leistung.text}</p>
-                  <p
-                    className="height-calculation"
+                  <div className="text main">
+                    <p className="dot">•</p>
+                    <p>{leistung.text}</p>
+                  </div>
+                  <div
+                    className="text height-calculation"
                     ref={(el) => {
                       if (
                         el &&
@@ -44,8 +45,9 @@ const LeistungenModal = ({ open, closeButton }) => {
                       }
                     }}
                   >
-                    {leistung.text}
-                  </p>
+                    <p className="dot">•</p>
+                    <p>{leistung.text}</p>
+                  </div>
                 </BoxStyle>
               ))}
           </div>
@@ -65,24 +67,29 @@ const BoxStyle = styled.div`
   padding: var(--space-md) var(--space-xxl);
   cursor: pointer;
   background-color: transparent;
-  transition: background-color 0.2s ease-out;
+  transition: background-color 0.1s ease-out;
 
   h3 {
     font-weight: 500;
     font-size: var(--fs-4);
   }
 
-  p {
-    padding-top: var(--space-md);
+  .text {
+    padding-top: var(--space-sm);
     text-align: center;
     font-weight: 300;
     font-size: var(--fs-5);
     line-height: 1.2;
     overflow: hidden;
 
+    .dot {
+      padding-bottom: var(--space-sm);
+      font-size: var(--fs-5);
+    }
+
     &.main {
       height: 0px;
-      transition: height 0.2s ease-out;
+      transition: height 0.1s ease-out;
     }
 
     &.height-calculation {
@@ -96,7 +103,7 @@ const BoxStyle = styled.div`
   &:hover {
     background-color: var(--blue);
     transition: background-color 0.2s ease-in;
-    p.main {
+    .text.main {
       height: ${(props) => (props.pheight ? props.pheight + "px" : "0px")};
       transition: height 0.2s ease-in;
     }
