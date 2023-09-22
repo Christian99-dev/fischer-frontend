@@ -53,7 +53,7 @@ const ImageFilterStyle = styled.div`
   &:hover {
     img {
       transform: ${(props) => (props.hover ? "scale(1.05)" : "none")};
-      transition: transform 0.25s ease-in;
+      transition: transform 0.2s ease-in;
     }
   }
 
@@ -67,7 +67,7 @@ const ImageFilterStyle = styled.div`
   img {
     object-fit: ${(props) => props.objectfit};
     z-index: 10;
-    transition: transform 0.25s ease-out;
+    transition: transform 0.1s ease-out;
   }
 
   .filter {

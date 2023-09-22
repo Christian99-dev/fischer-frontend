@@ -3,6 +3,7 @@
     {
       "name": "Projektkategorie 1",
       "background": "/mock/images/worker.jpg",
+      "order": 1,
       "projekte": [
         {
           "name": "Haus",
@@ -22,20 +23,55 @@
       ]
     },
     {
-        "name": "Projektkategorie 2",
-        "background": "/mock/images/wood.png",
-        "projekte": [
-          {
-            "name": "Restaurierung",
-            "bild": "/mock/images/gang.jpg",
-            "beschreibung": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua."
-          },
-          {
-            "name": "Irgendwas anderes",
-            "bild": "/mock/images/worker2.jpg",
-            "beschreibung": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua."
-          }
-        ]
-      }
+      "name": "Projektkategorie 2",
+      "background": "/mock/images/wood.png",
+      "order": 2,
+      "projekte": [
+        {
+          "name": "Restaurierung",
+          "bild": "/mock/images/gang.jpg",
+          "beschreibung": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua."
+        },
+        {
+          "name": "Irgendwas anderes",
+          "bild": "/mock/images/worker2.jpg",
+          "beschreibung": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua."
+        }
+      ]
+    },
+    {
+      "name": "Projektkategorie 3",
+      "background": "/mock/images/worker2.jpg",
+      "order": 3,
+      "projekte": [
+        {
+          "name": "Restaurierung",
+          "bild": "/mock/images/gang.jpg",
+          "beschreibung": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua."
+        },
+        {
+          "name": "Irgendwas anderes",
+          "bild": "/mock/images/worker2.jpg",
+          "beschreibung": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua."
+        }
+      ]
+    },
+    {
+      "name": "Projektkategorie 4",
+      "background": "/mock/images/gang.jpg",
+      "order": 4,
+      "projekte": [
+        {
+          "name": "Restaurierung",
+          "bild": "/mock/images/gang.jpg",
+          "beschreibung": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua."
+        },
+        {
+          "name": "Irgendwas anderes",
+          "bild": "/mock/images/cross.jpg",
+          "beschreibung": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua."
+        }
+      ]
+    }
   ]
 }
