@@ -2,11 +2,11 @@ import React from "react";
 import { styled } from "styled-components";
 import Icon from "./Icon";
 
-const Modal = ({ noBackground, open, children, closeButton, layer = 1 }) => {
+const Modal = ({ nobackground, open, children, closeButton, layer = 1 }) => {
   return (
     <ModalStyle
       style={{ zIndex: layer * 100 }}
-      noBackground={noBackground}
+      nobackground={nobackground}
       className={open ? "open" : "close"}
     >
       <div className="box">
@@ -36,7 +36,7 @@ const ModalStyle = styled.div`
   left: 0;
   right: 0;
   bottom: 0;
-  ${(props) => !props.noBackground && "background-color: rgba(0, 0, 0, 0.4);"}
+  ${(props) => !props.nobackground && "background-color: rgba(0, 0, 0, 0.6);"}
   .box {
     .icon {
       cursor: pointer;

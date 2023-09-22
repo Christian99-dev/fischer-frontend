@@ -1,75 +1,75 @@
 {
   "kategorien": [
     {
-      "name": "Projektkategorie 1",
-      "background": "/mock/images/worker.jpg",
+      "name": "Renovierungsprojekte",
+      "background": "/mock/images/wood.png",
       "order": 1,
       "projekte": [
         {
-          "name": "Haus",
-          "bild": "/mock/images/gang.jpg",
-          "beschreibung": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua."
+          "name": "Hausrenovierung",
+          "bild": "/mock/images/worker2.jpg",
+          "beschreibung": "Die Renovierung dieses Hauses war ein spannendes Projekt. Wir haben das ursprüngliche Design bewahrt und gleichzeitig moderne Annehmlichkeiten hinzugefügt."
         },
         {
-          "name": "Restaurierung",
+          "name": "Gebäuderestaurierung",
           "bild": "/mock/images/gang.jpg",
-          "beschreibung": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua."
+          "beschreibung": "Unsere Arbeit an der Restaurierung dieses Gebäudes war eine Herausforderung. Wir haben historische Details wiederhergestellt und die Struktur für die Zukunft gesichert."
         },
         {
-          "name": "Irgendwas",
-          "bild": "/mock/images/kreuz.jpg",
-          "beschreibung": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua."
+          "name": "Gartenumgestaltung",
+          "bild": "/mock/images/cross.jpg",
+          "beschreibung": "Die Umgestaltung dieses Gartens war ein kreatives Projekt. Wir haben sorgfältig Pflanzen und Materialien ausgewählt, um eine entspannte und ansprechende Umgebung zu schaffen."
         }
       ]
     },
     {
-      "name": "Projektkategorie 2",
-      "background": "/mock/images/wood.png",
+      "name": "Historische Gebäudesanierung",
+      "background": "/mock/images/worker.jpg",
       "order": 2,
       "projekte": [
         {
-          "name": "Restaurierung",
-          "bild": "/mock/images/gang.jpg",
-          "beschreibung": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua."
+          "name": "Sanierung eines historischen Gebäudes",
+          "bild": "/mock/images/wood.png",
+          "beschreibung": "Die Sanierung dieses historischen Gebäudes war ein aufregendes Unterfangen. Wir haben alte Handwerkskunst bewahrt und die Struktur für kommende Generationen erhalten."
         },
         {
-          "name": "Irgendwas anderes",
-          "bild": "/mock/images/worker2.jpg",
-          "beschreibung": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua."
+          "name": "Modernisierung eines Innenraums",
+          "bild": "/mock/images/cross.jpg",
+          "beschreibung": "Die Modernisierung dieses Innenraums war ein spannendes Projekt. Wir haben zeitgemäße Elemente integriert, um ein frisches und einladendes Ambiente zu schaffen."
         }
       ]
     },
     {
-      "name": "Projektkategorie 3",
-      "background": "/mock/images/worker2.jpg",
+      "name": "Denkmalrestaurierung",
+      "background": "/mock/images/gang.jpg",
       "order": 3,
       "projekte": [
         {
-          "name": "Restaurierung",
-          "bild": "/mock/images/gang.jpg",
-          "beschreibung": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua."
+          "name": "Restaurierung eines historischen Denkmals",
+          "bild": "/mock/images/worker.jpg",
+          "beschreibung": "Die Restaurierung dieses historischen Denkmals war eine ehrenvolle Aufgabe. Wir haben die Vergangenheit respektiert und gleichzeitig das Gebäude für zukünftige Generationen erhalten."
         },
         {
-          "name": "Irgendwas anderes",
+          "name": "Erhaltungsprojekt",
           "bild": "/mock/images/worker2.jpg",
-          "beschreibung": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua."
+          "beschreibung": "Dieses Erhaltungsprojekt war eine wichtige Aufgabe. Wir haben uns bemüht, die ursprüngliche Schönheit des Gebäudes zu bewahren und es vor dem Verfall zu schützen."
         }
       ]
     },
     {
-      "name": "Projektkategorie 4",
+      "name": "Umbauprojekte",
       "background": "/mock/images/gang.jpg",
       "order": 4,
       "projekte": [
         {
-          "name": "Restaurierung",
-          "bild": "/mock/images/gang.jpg",
-          "beschreibung": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua."
+          "name": "Umbau eines historischen Gebäudes",
+          "bild": "/mock/images/wood.png",
+          "beschreibung": "Der Umbau dieses historischen Gebäudes war eine anspruchsvolle Aufgabe. Wir haben die Struktur umgestaltet, um den Bedürfnissen der modernen Welt gerecht zu werden."
         },
         {
-          "name": "Irgendwas anderes",
+          "name": "Innenraumgestaltung",
           "bild": "/mock/images/cross.jpg",
-          "beschreibung": "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua."
+          "beschreibung": "Die Gestaltung dieses Innenraums war ein aufregendes Projekt. Wir haben Räume geschaffen, die sowohl funktional als auch ästhetisch ansprechend sind."
         }
       ]
     }
