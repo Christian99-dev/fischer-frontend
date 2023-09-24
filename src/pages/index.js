@@ -3,6 +3,7 @@ import Root from "../components/Root";
 import Welcome from "../sections/Welcome";
 import Selection from "../sections/Selection";
 import Fourmular from "../sections/Fourmular";
+import Footer from "../sections/Footer";
 
 const index = () => {
   return (
@@ -12,11 +13,13 @@ const index = () => {
         <Selection />
         <Fourmular />
       </main>
+      <Footer />
     </Root>
   );
 };
 
-
-export const Head = () => <link rel="stylesheet" type="text/css" href="/fonts/fontface.css" />
+export const Head = () => (
+  <link rel="stylesheet" type="text/css" href="/fonts/fontface.css" />
+);
 
 export default index;

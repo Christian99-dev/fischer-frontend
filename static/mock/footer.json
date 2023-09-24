@@ -1,0 +1,12 @@
+{
+    "sektionen" : [
+        {
+            "ueberschrift" : "Kontakt",
+            "zeilen" : ["015116588504", "info@fischer.de"]
+        },
+        {
+            "ueberschrift" : "Anschrift",
+            "zeilen" : ["Musteradresse", "54353 Muster", "Am Lindenkreuz 15"]
+        }
+    ]
+}

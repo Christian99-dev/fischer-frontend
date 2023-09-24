@@ -24,4 +24,8 @@ export const FetchProjects = () => {
     return useFetchTimeSimulation(endpoints.projects, 1000);
 }
 
+export const FetchFooter = () => {
+    return useFetchTimeSimulation(endpoints.footer, 1000);
+}
+
 
