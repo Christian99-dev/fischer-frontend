@@ -51,16 +51,15 @@ const BoxStyle = styled.div`
   color: white;
   height: 100%;
   width: 100%;
-
+  
   .textbox {
+    width: 300px;
     position: absolute;
     z-index: 210;
     color: white;
     background: rgba(0, 0, 0, 0.7);
     left: var(--space-lg);
     bottom: var(--space-lg);
-    width: 30%;
-    height: 50%;
     padding: var(--space-lg);
     padding-left: 0px;
 
@@ -68,7 +67,7 @@ const BoxStyle = styled.div`
       display: flex;
       margin-bottom: var(--space-lg);
       .extra-bar {
-        width: var(--space-lg);
+        min-width: var(--space-lg);
         border-bottom: 2px solid white;
       }
     }
@@ -77,6 +76,10 @@ const BoxStyle = styled.div`
       font-size: var(--fs-6);
       line-height: 1.7;
       padding-left: var(--space-lg);
+    }
+
+    .title{
+      font-size: var(--fs-2);
     }
   }
 `;
