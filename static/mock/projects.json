@@ -17,7 +17,7 @@
         },
         {
           "name": "Gartenumgestaltung",
-          "bild": "/mock/images/cross.jpg",
+          "bild": "/mock/images/kreuz.jpg",
           "beschreibung": "Die Umgestaltung dieses Gartens war ein kreatives Projekt. Wir haben sorgfältig Pflanzen und Materialien ausgewählt, um eine entspannte und ansprechende Umgebung zu schaffen."
         }
       ]
@@ -34,7 +34,7 @@
         },
         {
           "name": "Modernisierung eines Innenraums",
-          "bild": "/mock/images/cross.jpg",
+          "bild": "/mock/images/kreuz.jpg",
           "beschreibung": "Die Modernisierung dieses Innenraums war ein spannendes Projekt. Wir haben zeitgemäße Elemente integriert, um ein frisches und einladendes Ambiente zu schaffen."
         }
       ]
@@ -68,7 +68,7 @@
         },
         {
           "name": "Innenraumgestaltung",
-          "bild": "/mock/images/cross.jpg",
+          "bild": "/mock/images/kreuz.jpg",
           "beschreibung": "Die Gestaltung dieses Innenraums war ein aufregendes Projekt. Wir haben Räume geschaffen, die sowohl funktional als auch ästhetisch ansprechend sind."
         }
       ]

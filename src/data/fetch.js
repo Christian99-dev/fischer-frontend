@@ -28,4 +28,13 @@ export const FetchFooter = () => {
     return useFetchTimeSimulation(endpoints.footer, 1000);
 }
 
+export const FetchUnternehmen = () => {
+    return useFetchTimeSimulation(endpoints.unternehmen, 1000);
+}
+
+export const FetchRechtliches = () => {
+    return useFetchTimeSimulation(endpoints.rechtliches, 1000);
+}
+
+
 

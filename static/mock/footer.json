@@ -1,12 +1,12 @@
 {
-    "sektionen" : [
+    "sektionen": [
         {
-            "ueberschrift" : "Kontakt",
-            "zeilen" : ["015116588504", "info@fischer.de"]
+            "ueberschrift": "Kontakt",
+            "zeilen": ["0151 1658 8504", "info@fischer-musterfirma.de"]
         },
         {
-            "ueberschrift" : "Anschrift",
-            "zeilen" : ["Musteradresse", "54353 Muster", "Am Lindenkreuz 15"]
+            "ueberschrift": "Anschrift",
+            "zeilen": ["Musterstraße 123", "54353 Musterstadt", "Am Lindenplatz 15"]
         }
     ]
 }

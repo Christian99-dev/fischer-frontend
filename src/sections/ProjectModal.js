@@ -1,10 +1,25 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Modal from "../components/Modal";
 import styled from "styled-components";
 import ImageFilter from "../components/ImageFilter";
 import Title from "../components/Title";
+import Slider from "../components/Slider";
 
 const ProjectModal = ({ open, closeButton, data }) => {
+  useEffect(() => {
+    openBox(0);
+  }, []);
+
+  const [boxesOpen, setBoxesOpen] = useState(
+    new Array(data.projekte.lenght).fill(false)
+  );
+
+  const openBox = (index) => {
+    const newBoxes = new Array(data.projekte.lenght).fill(false);
+    newBoxes[index] = true;
+    setBoxesOpen(newBoxes);
+  };
+
   return (
     <Modal
       nobackground={"true"}
@@ -13,7 +28,31 @@ const ProjectModal = ({ open, closeButton, data }) => {
       layer={2}
     >
       <ProjectModalStyle>
-        <Box data={data.projekte[0]} left="true" />
+        <Slider
+          onSlideChange={(swiper) => {
+            console.log("slide change", swiper.realIndex);
+            openBox(swiper.realIndex);
+          }}
+          items={data.projekte.map((item, index) => (
+            <ImageFilter
+              key={index}
+              loading={false}
+              src={item.bild}
+              background="true"
+            />
+          ))}
+        />
+        {data.projekte.map((item, index) => {
+          console.log(index)
+          return (
+            <TextBox
+              open={boxesOpen[index]}
+              data={item}
+              key={index}
+              left={(index % 2 == 0).toString()}
+            />
+          );
+        })}
       </ProjectModalStyle>
     </Modal>
   );
@@ -22,64 +61,75 @@ const ProjectModal = ({ open, closeButton, data }) => {
 export default ProjectModal;
 
 const ProjectModalStyle = styled.div`
-  color: white;
+  height: 100%;
+  position: relative;
 `;
 
-const Box = ({ data, left }) => {
-  // const [read, setReadMore] = useState(false);
+const TextBox = ({ open, data, left }) => {
   return (
-    <BoxStyle left={left}>
-      {JSON.stringify(data)}
-      <div className="textbox">
-        <div className="title-wrapper">
-          <div className="extra-bar" />
-          <Title left="true" text={data.name} />
-        </div>
-        <p>{data.beschreibung}</p>
+    <TextBoxStyle
+      className={(open ? "open" : "false") + " " + (left == "true" ? "left" : "right")}
+    >
+      <div className="title-wrapper">
+        <div className="extra-bar" />
+        <Title left="true" text={data.name} />
       </div>
-      <ImageFilter
-        loading={false}
-        src={data.bild}
-        opacity={0}
-        background="true"
-      />
-    </BoxStyle>
+      <p>{data.beschreibung}</p>
+    </TextBoxStyle>
   );
 };
 
-const BoxStyle = styled.div`
+const TextBoxStyle = styled.div`
+  width: min-content;
+  position: absolute;
+  z-index: 210;
   color: white;
-  height: 100%;
-  width: 100%;
-  
-  .textbox {
-    width: 300px;
-    position: absolute;
-    z-index: 210;
-    color: white;
-    background: rgba(0, 0, 0, 0.7);
+  background: rgba(0, 0, 0, 0.7);
+
+  bottom: var(--space-lg);
+  padding: var(--space-lg);
+  padding-left: 0px;
+  min-height: 300px;
+
+  &.left {
     left: var(--space-lg);
-    bottom: var(--space-lg);
-    padding: var(--space-lg);
-    padding-left: 0px;
+  }
 
-    .title-wrapper {
-      display: flex;
-      margin-bottom: var(--space-lg);
-      .extra-bar {
-        min-width: var(--space-lg);
-        border-bottom: 2px solid white;
-      }
+  &.right {
+    right: var(--space-lg);
+  }
+
+  &.true {
+    opacity: 1;
+    transition: opacity 0.2s ease-in;
+  }
+
+  &.false {
+    opacity: 0;
+    transition: opacity 0.15s ease-out;
+  }
+
+  .title-wrapper {
+    display: flex;
+    margin-bottom: var(--space-lg);
+
+    .title {
+      min-width: 250px;
     }
 
-    p {
-      font-size: var(--fs-6);
-      line-height: 1.7;
-      padding-left: var(--space-lg);
+    .extra-bar {
+      min-width: var(--space-lg);
+      border-bottom: 2px solid white;
     }
+  }
 
-    .title{
-      font-size: var(--fs-2);
-    }
+  p {
+    font-size: var(--fs-6);
+    line-height: 1.7;
+    padding-left: var(--space-lg);
+  }
+
+  .title {
+    font-size: var(--fs-2);
   }
 `;
