@@ -39,10 +39,12 @@ const ModalStyle = styled.div`
   ${(props) => !props.nobackground && "background-color: rgba(0, 0, 0, 0.6);"}
   .box {
     .icon {
+      box-sizing: content-box;
       cursor: pointer;
       position: absolute;
-      right: var(--space-lg);
-      top: var(--space-lg);
+      right: 0;
+      top: 0;
+      padding: var(--space-lg);
     }
 
     position: fixed;
