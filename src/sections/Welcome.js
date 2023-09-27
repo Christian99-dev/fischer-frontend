@@ -14,7 +14,7 @@ const Welcome = () => {
         <React.Fragment>
           <div className="text-wrapper">
             <Fade>
-              <h2 className="loading-text">Gleich gehts los...</h2>
+              <h1 className="loading-text">Gleich gehts los...</h1>
             </Fade>
           </div>
           <div className="loading-banner" />
