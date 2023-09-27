@@ -38,40 +38,6 @@
           "beschreibung": "Die Modernisierung dieses Innenraums war ein spannendes Projekt. Wir haben zeitgemäße Elemente integriert, um ein frisches und einladendes Ambiente zu schaffen."
         }
       ]
-    },
-    {
-      "name": "Denkmalrestaurierung",
-      "background": "/mock/images/gang.jpg",
-      "order": 3,
-      "projekte": [
-        {
-          "name": "Restaurierung eines historischen Denkmals",
-          "bild": "/mock/images/worker.jpg",
-          "beschreibung": "Die Restaurierung dieses historischen Denkmals war eine ehrenvolle Aufgabe. Wir haben die Vergangenheit respektiert und gleichzeitig das Gebäude für zukünftige Generationen erhalten."
-        },
-        {
-          "name": "Erhaltungsprojekt",
-          "bild": "/mock/images/worker2.jpg",
-          "beschreibung": "Dieses Erhaltungsprojekt war eine wichtige Aufgabe. Wir haben uns bemüht, die ursprüngliche Schönheit des Gebäudes zu bewahren und es vor dem Verfall zu schützen."
-        }
-      ]
-    },
-    {
-      "name": "Umbauprojekte",
-      "background": "/mock/images/gang.jpg",
-      "order": 4,
-      "projekte": [
-        {
-          "name": "Umbau eines historischen Gebäudes",
-          "bild": "/mock/images/wood.png",
-          "beschreibung": "Der Umbau dieses historischen Gebäudes war eine anspruchsvolle Aufgabe. Wir haben die Struktur umgestaltet, um den Bedürfnissen der modernen Welt gerecht zu werden."
-        },
-        {
-          "name": "Innenraumgestaltung",
-          "bild": "/mock/images/kreuz.jpg",
-          "beschreibung": "Die Gestaltung dieses Innenraums war ein aufregendes Projekt. Wir haben Räume geschaffen, die sowohl funktional als auch ästhetisch ansprechend sind."
-        }
-      ]
     }
   ]
 }

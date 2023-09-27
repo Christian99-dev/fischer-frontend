@@ -1,39 +1,39 @@
-import { /*useFetch, */ useFetchTimeSimulation } from "../services/Hooks/useFetch";
+import { useFetch } from "../services/Hooks/useFetch";
 import { staticData } from "./endpoints";
 
 // chose implementation
 const endpoints = staticData;
 
 export const FetchWelcome = () => {
-    return useFetchTimeSimulation(endpoints.welcome, 1000);
+    return useFetch(endpoints.welcome);
 }
 
 export const FetchSelection = () => {
-    return useFetchTimeSimulation(endpoints.selection, 1000);
+    return useFetch(endpoints.selection);
 }
 
 export const FetchAboutUs = () => {
-    return useFetchTimeSimulation(endpoints.aboutus, 1000);
+    return useFetch(endpoints.aboutus);
 }
 
 export const FetchLeistungen = () => {
-    return useFetchTimeSimulation(endpoints.leistungen, 1000);
+    return useFetch(endpoints.leistungen);
 }
 
 export const FetchProjects = () => {
-    return useFetchTimeSimulation(endpoints.projects, 1000);
+    return useFetch(endpoints.projects);
 }
 
 export const FetchFooter = () => {
-    return useFetchTimeSimulation(endpoints.footer, 1000);
+    return useFetch(endpoints.footer);
 }
 
 export const FetchUnternehmen = () => {
-    return useFetchTimeSimulation(endpoints.unternehmen, 1000);
+    return useFetch(endpoints.unternehmen);
 }
 
 export const FetchRechtliches = () => {
-    return useFetchTimeSimulation(endpoints.rechtliches, 1000);
+    return useFetch(endpoints.rechtliches);
 }
 
 

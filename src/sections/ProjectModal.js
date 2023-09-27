@@ -30,7 +30,6 @@ const ProjectModal = ({ open, closeButton, data }) => {
       <ProjectModalStyle>
         <Slider
           onSlideChange={(swiper) => {
-            console.log("slide change", swiper.realIndex);
             openBox(swiper.realIndex);
           }}
           items={data.projekte.map((item, index) => (
@@ -43,7 +42,6 @@ const ProjectModal = ({ open, closeButton, data }) => {
           ))}
         />
         {data.projekte.map((item, index) => {
-          console.log(index)
           return (
             <TextBox
               open={boxesOpen[index]}
