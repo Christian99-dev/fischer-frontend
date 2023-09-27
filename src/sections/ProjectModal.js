@@ -47,7 +47,7 @@ const ProjectModal = ({ open, closeButton, data }) => {
               open={boxesOpen[index]}
               data={item}
               key={index}
-              left={(index % 2 == 0).toString()}
+              left={(index % 2 === 0).toString()}
             />
           );
         })}
@@ -66,7 +66,7 @@ const ProjectModalStyle = styled.div`
 const TextBox = ({ open, data, left }) => {
   return (
     <TextBoxStyle
-      className={(open ? "open" : "false") + " " + (left == "true" ? "left" : "right")}
+      className={(open ? "open" : "false") + " " + (left === "true" ? "left" : "right")}
     >
       <div className="title-wrapper">
         <div className="extra-bar" />
