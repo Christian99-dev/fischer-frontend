@@ -1,12 +1,14 @@
-import React, { Fragment, useState } from "react";
-import { FetchWelcome } from "../data/fetch";
+import React, { useState } from "react";
+import { FetchUnternehmen, FetchWelcome } from "../data/fetch";
 import { styled } from "styled-components";
 import Icon from "../components/Icon";
 import { Link } from "react-scroll";
 import { Fade } from "react-awesome-reveal";
+// import Circle from "../components/circle";
 
 const Welcome = () => {
-  const { data, loading } = FetchWelcome();
+  const { data } = FetchWelcome();
+  // const { data: unternehmenData } = FetchUnternehmen();
   const [videoLoaded, setVideoLoaded] = useState(false);
   return (
     <WelcomeStyle>
@@ -14,18 +16,29 @@ const Welcome = () => {
         <React.Fragment>
           <div className="text-wrapper">
             <Fade>
-              <h1 className="loading-text">Gleich gehts los...</h1>
+              <h1 className="loading-text">Lade...</h1>
             </Fade>
           </div>
           <div className="loading-banner" />
         </React.Fragment>
       )}
 
+      {/* {unternehmenData && (
+        <Fade delay={300} className="logo">
+          <Circle>
+            <img src={unternehmenData.logo} alt="Unternehenslogo" />
+          </Circle>
+        </Fade>
+      )} */}
+
       {videoLoaded && (
         <div className="text-wrapper">
           <Fade>
             <h1>{data.title}</h1>
-            <h2>{data.subtitle}</h2>
+          </Fade>
+
+          <Fade delay={200}>
+            <h2>{data.subtitle}</h2>{" "}
           </Fade>
         </div>
       )}
@@ -65,6 +78,17 @@ const WelcomeStyle = styled.section`
   justify-content: center;
   padding: var(--space-xl);
 
+  .logo {
+    position: fixed;
+    height: 100px;
+    z-index: 50;
+    right: var(--space-lg);
+    top: var(--space-lg);
+    img {
+      height: 100%;
+    }
+  }
+
   .loading-banner {
     background-color: black;
     z-index: 30;
@@ -78,8 +102,9 @@ const WelcomeStyle = styled.section`
     position: relative;
     top: 35%;
     text-align: center;
-    height: min-content;
     z-index: 40;
+    height: min-content;
+
     h1 {
       position: relative;
       font-size: var(--fs-bigtitle);
@@ -100,6 +125,7 @@ const WelcomeStyle = styled.section`
       font-weight: 500;
       letter-spacing: 1.5px;
       color: white;
+      font-family: inherit;
     }
   }
 
