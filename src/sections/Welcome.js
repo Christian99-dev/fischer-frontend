@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { FetchUnternehmen, FetchWelcome } from "../data/fetch";
+import { /* FetchUnternehmen, */ FetchWelcome } from "../data/fetch";
 import { styled } from "styled-components";
 import Icon from "../components/Icon";
 import { Link } from "react-scroll";
