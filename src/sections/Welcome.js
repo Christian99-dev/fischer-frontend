@@ -10,15 +10,11 @@ const Welcome = () => {
   const [videoLoaded, setVideoLoaded] = useState(false);
   const data = useStaticQuery(graphql`
     query {
-      allStrapiWillkommen {
-        edges {
-          node {
-            Titel
-            Untertitel
-            Hintergrund {
-              url
-            }
-          }
+      strapiWillkommen {
+        Titel
+        Untertitel
+        Hintergrund {
+          url
         }
       }
     }
@@ -28,7 +24,7 @@ const Welcome = () => {
     Titel: titel,
     Untertitel: untertitel,
     Hintergrund: hintergrund,
-  } = data.allStrapiWillkommen.edges[0].node;
+  } = data.strapiWillkommen;
 
   return (
     <WelcomeStyle>
