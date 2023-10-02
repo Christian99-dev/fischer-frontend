@@ -1,63 +1,57 @@
 import React, { useState } from "react";
-import { /* FetchUnternehmen, */ FetchWelcome } from "../data/fetch";
 import { styled } from "styled-components";
 import Icon from "../components/Icon";
 import { Link } from "react-scroll";
 import { Fade } from "react-awesome-reveal";
-// import Circle from "../components/circle";
+import { graphql, useStaticQuery } from "gatsby";
 
 const Welcome = () => {
-  const { data } = FetchWelcome();
-  // const { data: unternehmenData } = FetchUnternehmen();
   const [videoLoaded, setVideoLoaded] = useState(false);
+  const data = useStaticQuery(graphql`
+    query MyQuery {
+      allStrapiWillkommen {
+        edges {
+          node {
+            Titel
+            Untertitel
+            Hintergrund {
+              url
+            }
+          }
+        }
+      }
+    }
+  `);
+
+  const {
+    Titel: titel,
+    Untertitel: untertitel,
+    Hintergrund: hintergrund,
+  } = data.allStrapiWillkommen.edges[0].node;
+
   return (
     <WelcomeStyle>
-      {!videoLoaded && (
-        <React.Fragment>
-          <div className="text-wrapper">
-            <Fade>
-              <h1 className="loading-text">Lade...</h1>
-            </Fade>
-          </div>
-          <div className="loading-banner" />
-        </React.Fragment>
-      )}
 
-      {/* {unternehmenData && (
-        <Fade delay={300} className="logo">
-          <Circle>
-            <img src={unternehmenData.logo} alt="Unternehenslogo" />
-          </Circle>
+      <div className="text-wrapper">
+        <Fade>
+          <h1>{titel}</h1>
         </Fade>
-      )} */}
+        <Fade delay={200}>
+          <h2>{untertitel}</h2>
+        </Fade>
+      </div>
 
-      {videoLoaded && (
-        <div className="text-wrapper">
-          <Fade>
-            <h1>{data.title}</h1>
-          </Fade>
-
-          <Fade delay={200}>
-            <h2>{data.subtitle}</h2>{" "}
-          </Fade>
-        </div>
-      )}
-
-      {data && (
-        <div className="video">
-          <div className="filter" />
-          <video
-            src={data.background}
-            title={"Trailer des Unternehmens"}
-            autoPlay
-            loop
-            muted
-            onLoadedData={() => {
-              setVideoLoaded(true);
-            }}
-          />
-        </div>
-      )}
+      <div className="video">
+        <div className={"filter " + (videoLoaded && "loaded")} />
+        <video
+          src={process.env.GATSBY_BACKEND_URL + hintergrund.url}
+          title={"Trailer des Unternehmens"}
+          autoPlay
+          loop
+          muted
+          onLoadedData={() => setVideoLoaded(true)}
+        />
+      </div>
 
       <Link className="downbutton" to="selection" smooth={true} duration={500}>
         <Fade direction="down">
@@ -84,18 +78,10 @@ const WelcomeStyle = styled.section`
     z-index: 50;
     right: var(--space-lg);
     top: var(--space-lg);
+    
     img {
       height: 100%;
     }
-  }
-
-  .loading-banner {
-    background-color: black;
-    z-index: 30;
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    top: 0;
   }
 
   .text-wrapper {
@@ -119,14 +105,6 @@ const WelcomeStyle = styled.section`
       font-weight: 500;
       letter-spacing: 1.5px;
     }
-
-    .loading-text {
-      font-size: var(--fs-3);
-      font-weight: 500;
-      letter-spacing: 1.5px;
-      color: white;
-      font-family: inherit;
-    }
   }
 
   .downbutton {
@@ -136,6 +114,7 @@ const WelcomeStyle = styled.section`
     margin-bottom: var(--space-lg);
     cursor: pointer;
     transition: bottom 0.2s ease-out;
+    
     &:hover {
       bottom: var(--space-sm);
       transition: bottom 0.2s ease-in;
@@ -152,14 +131,21 @@ const WelcomeStyle = styled.section`
     width: 100%;
     height: 100%;
     top: 0;
+    
     .filter {
       position: absolute;
       height: 100%;
       width: 100%;
       z-index: 31;
       background-color: var(--black);
-      opacity: 0.6;
+      opacity: 1;
+
+      &.loaded{
+        opacity: 0.6;
+        transition: opacity 0.4s ease-in;
+      }
     }
+    
     video {
       position: absolute;
       height: 100%;
