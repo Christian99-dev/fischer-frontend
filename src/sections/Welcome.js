@@ -4,11 +4,12 @@ import Icon from "../components/Icon";
 import { Link } from "react-scroll";
 import { Fade } from "react-awesome-reveal";
 import { graphql, useStaticQuery } from "gatsby";
+import { addMediaLink } from "../services/Utils/addMediaLink";
 
 const Welcome = () => {
   const [videoLoaded, setVideoLoaded] = useState(false);
   const data = useStaticQuery(graphql`
-    query MyQuery {
+    query {
       allStrapiWillkommen {
         edges {
           node {
@@ -44,7 +45,7 @@ const Welcome = () => {
       <div className="video">
         <div className={"filter " + (videoLoaded && "loaded")} />
         <video
-          src={process.env.GATSBY_BACKEND_URL + hintergrund.url}
+          src={addMediaLink(hintergrund.url)}
           title={"Trailer des Unternehmens"}
           autoPlay
           loop
