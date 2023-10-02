@@ -4,7 +4,7 @@
 
 require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
-})
+});
 
 module.exports = {
   siteMetadata: {
@@ -19,8 +19,15 @@ module.exports = {
       resolve: "gatsby-source-strapi",
       options: {
         apiURL: process.env.GATSBY_BACKEND_URL,
-        singleTypes : ["willkommen"],
-        accessToken:process.env.GATSBY_BACKEND_API_TOKEN
+        singleTypes: ["willkommen"],
+        accessToken: process.env.GATSBY_BACKEND_API_TOKEN,
+      },
+    },
+    {
+      resolve: `gatsby-plugin-preload-fonts`,
+      options: {
+        formats: ["woff2"],
+        usePreload: true,
       },
     },
   ],

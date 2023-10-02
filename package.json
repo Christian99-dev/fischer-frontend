@@ -18,6 +18,7 @@
     "@emotion/react": "^11.11.1",
     "babel-plugin-styled-components": "^2.1.4",
     "gatsby": "^5.12.1",
+    "gatsby-plugin-preload-fonts": "^4.12.0",
     "gatsby-plugin-styled-components": "^6.12.0",
     "gatsby-source-strapi": "^3.3.1",
     "html-react-parser": "^4.2.2",
