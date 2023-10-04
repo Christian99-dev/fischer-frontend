@@ -5,7 +5,7 @@ import AboutUsModal from "./AboutUsModal";
 import LeistungenModal from "./LeistungenModal";
 import ProjectsModal from "./ProjectsModal";
 import { graphql, useStaticQuery } from "gatsby";
-import ImgFilter from "../components/ImgFilter";
+import GatsbyImgFilter from "../components/GatsbyImgFilter";
 
 const Selection = () => {
   const [showAboutUs, setShowAboutUs] = useState(false);
@@ -95,7 +95,7 @@ const Card = ({ data, onClick }) => {
         <h2>{text}</h2>
         <Icon name="add" />
       </div>
-      <ImgFilter
+      <GatsbyImgFilter
         image={hintergrund}
         color="var(--blue)"
         hover="true"

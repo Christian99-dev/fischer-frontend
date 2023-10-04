@@ -2,7 +2,7 @@ import React from "react";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import styled from "styled-components";
 
-const ImgFilter = ({ image, background, color, opacity, hover }) => {
+const GatsbyImgFilter = ({ image, background, color, opacity, hover }) => {
   return (
     <ImgFilterWrapper
       hover={hover}
@@ -20,7 +20,7 @@ const ImgFilter = ({ image, background, color, opacity, hover }) => {
   );
 };
 
-export default ImgFilter;
+export default GatsbyImgFilter;
 
 const ImgFilterWrapper = styled.div`
   position: relative;
