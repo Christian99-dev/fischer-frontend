@@ -1,21 +1,65 @@
 import React, { useState } from "react";
-import { FetchSelection } from "../data/fetch";
 import { styled } from "styled-components";
-import ImageFilter from "../components/ImageFilter";
 import Icon from "../components/Icon";
 import AboutUsModal from "./AboutUsModal";
 import LeistungenModal from "./LeistungenModal";
 import ProjectsModal from "./ProjectsModal";
+import { graphql, useStaticQuery } from "gatsby";
+import ImgFilter from "../components/ImgFilter";
 
 const Selection = () => {
   const [showAboutUs, setShowAboutUs] = useState(false);
   const [showLeistungen, setShowLeistungen] = useState(false);
   const [showProjects, setShowProjects] = useState(false);
+
+  const { leistungen, ueberuns, projekte } = useStaticQuery(graphql`
+    {
+      strapiAuswahl {
+        leistungen: Leistungen {
+          text: Text
+          hintergrund: Hintergrund {
+            alternativeText
+            localFile {
+              childImageSharp {
+                gatsbyImageData(layout: CONSTRAINED)
+              }
+            }
+          }
+        }
+        ueberuns: UeberUns {
+          text: Text
+          hintergrund: Hintergrund {
+            alternativeText
+            localFile {
+              childImageSharp {
+                gatsbyImageData(layout: CONSTRAINED)
+              }
+            }
+          }
+        }
+        projekte: Projekte {
+          text: Text
+          hintergrund: Hintergrund {
+            alternativeText
+            localFile {
+              childImageSharp {
+                gatsbyImageData(layout: CONSTRAINED)
+              }
+            }
+          }
+        }
+      }
+    }
+  `).strapiAuswahl;
+
   return (
     <SelectionStyle id="selection">
-      <Card identifier="projekte" onClick={() => setShowProjects(true)} />
-      <Card identifier="leistungen" onClick={() => setShowLeistungen(true)} />
-      <Card identifier="ueberuns" onClick={() => setShowAboutUs(true)} />
+      {/** Buttons */}
+      <Card data={projekte} onClick={() => setShowProjects(true)} />
+      <Card data={leistungen} onClick={() => setShowLeistungen(true)} />
+      <Card data={ueberuns} onClick={() => setShowAboutUs(true)} />
+
+      {/** Modals */}
       <AboutUsModal
         open={showAboutUs}
         closeButton={() => setShowAboutUs(false)}
@@ -43,24 +87,20 @@ const SelectionStyle = styled.section`
   gap: var(--space-lg);
 `;
 
-const Card = ({ identifier, onClick }) => {
-  const { data } = FetchSelection();
-  const background = data && data[identifier].background;
-
+const Card = ({ data, onClick }) => {
+  const { text, hintergrund } = data;
   return (
     <CardStyle onClick={onClick}>
       <div className="textbox">
-        {data && <h2>{data[identifier].name}</h2>}
+        <h2>{text}</h2>
         <Icon name="add" />
       </div>
-      <ImageFilter
-        background="true"
+      <ImgFilter
+        image={hintergrund}
         color="var(--blue)"
-        src={background}
-        opacity={0.55}
-        alt={data ? data[identifier].name + " Auswahlbild" : "Auswahlbild"}
-        loading={!data}
         hover="true"
+        opacity={0.55}
+        background
       />
     </CardStyle>
   );
@@ -82,7 +122,7 @@ const CardStyle = styled.div`
     h2 {
       color: white;
       position: relative;
-      z-index: 20;
+      z-index: 30;
       font-size: var(--fs-4);
       font-weight: 500;
       padding-bottom: var(--space-xl);
@@ -90,7 +130,7 @@ const CardStyle = styled.div`
 
     .icon {
       position: relative;
-      z-index: 20;
+      z-index: 30;
     }
   }
 `;
