@@ -8,27 +8,22 @@ import { addMediaLink } from "../services/Utils/addMediaLink";
 
 const Welcome = () => {
   const [videoLoaded, setVideoLoaded] = useState(false);
-  const data = useStaticQuery(graphql`
+
+  const { titel, untertitel, hintergrund, alternativeText } = useStaticQuery(graphql`
     query {
       strapiWillkommen {
-        Titel
-        Untertitel
-        Hintergrund {
+        titel: Titel
+        untertitel: Untertitel
+        hintergrund: Hintergrund {
           url
+          alternativeText
         }
       }
     }
-  `);
-
-  const {
-    Titel: titel,
-    Untertitel: untertitel,
-    Hintergrund: hintergrund,
-  } = data.strapiWillkommen;
+  `).strapiWillkommen;
 
   return (
     <WelcomeStyle>
-
       <div className="text-wrapper">
         <Fade>
           <h1>{titel}</h1>
@@ -42,7 +37,7 @@ const Welcome = () => {
         <div className={"filter " + (videoLoaded && "loaded")} />
         <video
           src={addMediaLink(hintergrund.url)}
-          title={"Trailer des Unternehmens"}
+          title={alternativeText}
           autoPlay
           loop
           muted
@@ -59,8 +54,6 @@ const Welcome = () => {
   );
 };
 
-export default Welcome;
-
 const WelcomeStyle = styled.section`
   position: relative;
   height: 100vh;
@@ -75,7 +68,7 @@ const WelcomeStyle = styled.section`
     z-index: 50;
     right: var(--space-lg);
     top: var(--space-lg);
-    
+
     img {
       height: 100%;
     }
@@ -111,7 +104,7 @@ const WelcomeStyle = styled.section`
     margin-bottom: var(--space-lg);
     cursor: pointer;
     transition: bottom 0.2s ease-out;
-    
+
     &:hover {
       bottom: var(--space-sm);
       transition: bottom 0.2s ease-in;
@@ -128,7 +121,7 @@ const WelcomeStyle = styled.section`
     width: 100%;
     height: 100%;
     top: 0;
-    
+
     .filter {
       position: absolute;
       height: 100%;
@@ -137,12 +130,12 @@ const WelcomeStyle = styled.section`
       background-color: var(--black);
       opacity: 1;
 
-      &.loaded{
+      &.loaded {
         opacity: 0.6;
         transition: opacity 0.4s ease-in;
       }
     }
-    
+
     video {
       position: absolute;
       height: 100%;
@@ -152,3 +145,5 @@ const WelcomeStyle = styled.section`
     }
   }
 `;
+
+export default Welcome;

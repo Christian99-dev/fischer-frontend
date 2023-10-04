@@ -7,6 +7,9 @@ require("dotenv").config({
 });
 
 const plugins = [
+  `gatsby-plugin-image`,
+  `gatsby-plugin-sharp`,
+  `gatsby-transformer-sharp`, 
   "gatsby-plugin-styled-components",
   {
     resolve: `gatsby-plugin-preload-fonts`,
@@ -22,7 +25,22 @@ if (process.env.GATSBY_USE_LOCAL_BACKEND === "false") {
     resolve: "gatsby-source-strapi",
     options: {
       apiURL: process.env.GATSBY_BACKEND_URL,
-      singleTypes: ["willkommen", "auswahl"],
+      singleTypes: [
+        "willkommen",
+        {
+          singularName: "auswahl",
+          queryParams: {
+            populate: [
+              "Leistungen",
+              "UeberUns",
+              "Projekte",
+              "Leistungen.Hintergrund",
+              "UeberUns.Hintergrund",
+              "Projekte.Hintergrund",
+            ],
+          },
+        },
+      ],
       accessToken: process.env.GATSBY_BACKEND_API_TOKEN,
     },
   });
