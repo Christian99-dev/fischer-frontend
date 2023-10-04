@@ -1,32 +1,51 @@
 import React from "react";
 import styled from "styled-components";
-import { FetchFooter, FetchUnternehmen } from "../data/fetch";
 import HoverLink from "../components/HoverLink";
 import AutoLink from "../components/AutoLink";
+import { graphql, useStaticQuery } from "gatsby";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 const Footer = () => {
-  const { data } = FetchFooter();
-  const { data: unternehmenData } = FetchUnternehmen();
+  const { spalten, logo } = useStaticQuery(graphql`
+    query {
+      strapiFooter {
+        logo: Logo {
+          alternativeText
+          localFile {
+            childImageSharp {
+              gatsbyImageData(layout: CONSTRAINED)
+            }
+          }
+        }
+        spalten: Spalten {
+          ueberschrift: Ueberschrift
+          reihen: Reihen {
+            text: Text
+          }
+        }
+      }
+    }
+  `).strapiFooter;
+
   return (
     <FooterStyle>
-      {unternehmenData && (
-        <div className="logo">
-          <img src={unternehmenData.logo} alt="Unternehmenslogo" />
-        </div>
-      )}
+      <GatsbyImage
+        image={getImage(logo.localFile)}
+        alt={logo.alternativeText}
+        className="logo"
+      />
       <div className="horizontal-wrapper">
         <div className="sektions">
-          {data &&
-            data.sektionen.map((sektion, index) => (
-              <div className="sektion" key={index}>
-                <h3>{sektion.ueberschrift}</h3>
-                <div className="zeilen">
-                  {sektion.zeilen.map((zeile, index) => (
-                    <AutoLink key={index} to={zeile} />
-                  ))}
-                </div>
+          {spalten.map((spalte, index) => (
+            <div className="sektion" key={index}>
+              <h3>{spalte.ueberschrift}</h3>
+              <div className="zeilen">
+                {spalte.reihen.map((reihe, index) => (
+                  <AutoLink key={index} to={reihe.text} />
+                ))}
               </div>
-            ))}
+            </div>
+          ))}
 
           <div className="sektion">
             <h3>Rechtliches</h3>
