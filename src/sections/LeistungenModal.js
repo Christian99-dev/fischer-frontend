@@ -19,7 +19,7 @@ const LeistungenModal = ({ open, closeButton }) => {
           }
         }
         leistungen: Leistungen {
-          text: Text
+          beschreibung: Beschreibung
           ueberschrift: Ueberschrift
         }
       }
@@ -41,7 +41,7 @@ const LeistungenModal = ({ open, closeButton }) => {
               <h3>{leistung.ueberschrift}</h3>
               <div className="text main">
                 <p className="dot">•</p>
-                <p>{leistung.text}</p>
+                <p>{leistung.beschreibung}</p>
               </div>
               <div
                 className="text height-calculation"
@@ -56,7 +56,7 @@ const LeistungenModal = ({ open, closeButton }) => {
                 }}
               >
                 <p className="dot">•</p>
-                <p>{leistung.text}</p>
+                <p>{leistung.beschreibung}</p>
               </div>
             </BoxStyle>
           ))}
