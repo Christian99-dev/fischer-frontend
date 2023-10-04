@@ -1,57 +1,66 @@
 import React, { useState } from "react";
 import Modal from "../components/Modal";
 import styled from "styled-components";
-import { FetchLeistungen } from "../data/fetch";
-import ImageFilter from "../components/ImageFilter";
+import { graphql, useStaticQuery } from "gatsby";
+import GatsbyImgFilter from "../components/GatsbyImgFilter";
 
 const LeistungenModal = ({ open, closeButton }) => {
-  const { data } = FetchLeistungen();
+
   const [heights, setHeights] = useState([]);
+  const { leistungen, hintergrund } = useStaticQuery(graphql`
+    query {
+      strapiLeistungen {
+        hintergrund: Hintergrund {
+          alternativeText
+          localFile {
+            childImageSharp {
+              gatsbyImageData(layout: CONSTRAINED)
+            }
+          }
+        }
+        leistungen: Leistungen {
+          text: Text
+          ueberschrift: Ueberschrift
+        }
+      }
+    }
+  `).strapiLeistungen;
+
   return (
     <Modal open={open} closeButton={closeButton}>
       <LeistungenModalStyle>
-        <ImageFilter
-          loading={!data}
-          src={data?.background}
+        <GatsbyImgFilter
+          image={hintergrund}
           background="true"
           opacity={0.8}
           color="var(--blue)"
-          alt={"Projecte Hintergrundbild"}
         />
-        {data && (
-          <div className={"grid _" + data.leistungen.length}>
-            {data.leistungen
-              .sort((a, b) => a.order - b.order)
-              .map((leistung, index) => (
-                <BoxStyle
-                  pheight={heights[index]}
-                  key={index}
-                  className="leistung"
-                >
-                  <h3>{leistung.title}</h3>
-                  <div className="text main">
-                    <p className="dot">•</p>
-                    <p>{leistung.text}</p>
-                  </div>
-                  <div
-                    className="text height-calculation"
-                    ref={(el) => {
-                      if (
-                        el &&
-                        el?.clientHeight !== 0 &&
-                        heights.length < data.leistungen.length
-                      ) {
-                        setHeights((old) => [...old, el.clientHeight]);
-                      }
-                    }}
-                  >
-                    <p className="dot">•</p>
-                    <p>{leistung.text}</p>
-                  </div>
-                </BoxStyle>
-              ))}
-          </div>
-        )}
+        <div className={"grid _" + leistungen.length}>
+          {leistungen.map((leistung, index) => (
+            <BoxStyle pheight={heights[index]} key={index} className="leistung">
+              <h3>{leistung.ueberschrift}</h3>
+              <div className="text main">
+                <p className="dot">•</p>
+                <p>{leistung.text}</p>
+              </div>
+              <div
+                className="text height-calculation"
+                ref={(el) => {
+                  if (
+                    el &&
+                    el?.clientHeight !== 0 &&
+                    heights.length < leistungen.length
+                  ) {
+                    setHeights((old) => [...old, el.clientHeight]);
+                  }
+                }}
+              >
+                <p className="dot">•</p>
+                <p>{leistung.text}</p>
+              </div>
+            </BoxStyle>
+          ))}
+        </div>
       </LeistungenModalStyle>
     </Modal>
   );
@@ -68,6 +77,15 @@ const BoxStyle = styled.div`
   cursor: pointer;
   background-color: transparent;
   transition: background-color 0.1s ease-out;
+
+  &:hover {
+    background-color: var(--blue);
+    transition: background-color 0.2s ease-in;
+    .text.main {
+      height: ${(props) => (props.pheight ? props.pheight + "px" : "0px")};
+      transition: height 0.2s ease-in;
+    }
+  }
 
   h3 {
     font-weight: 500;
@@ -97,15 +115,6 @@ const BoxStyle = styled.div`
       opacity: 0;
       z-index: -99;
       pointer-events: none;
-    }
-  }
-
-  &:hover {
-    background-color: var(--blue);
-    transition: background-color 0.2s ease-in;
-    .text.main {
-      height: ${(props) => (props.pheight ? props.pheight + "px" : "0px")};
-      transition: height 0.2s ease-in;
     }
   }
 `;

@@ -41,6 +41,7 @@ module.exports = {
         singleTypes: [
           "ueber-uns",
           "willkommen",
+          "leistungen",
           {
             singularName: "auswahl",
             queryParams: {
