@@ -42,6 +42,7 @@ module.exports = {
           "ueber-uns",
           "willkommen",
           "leistungen",
+          "formular",
           {
             singularName: "auswahl",
             queryParams: {

@@ -3,19 +3,44 @@ import { styled } from "styled-components";
 import Button from "../components/Button";
 import Input from "../components/Input";
 import Title from "../components/Title";
+import { graphql, useStaticQuery } from "gatsby";
 
 const Fourmular = () => {
+  const {
+    ueberschrift,
+    vorname,
+    nachname,
+    strasseHausnummer,
+    plzOrt,
+    email,
+    anliegen,
+    button,
+  } = useStaticQuery(graphql`
+    query {
+      strapiFormular {
+        ueberschrift: Ueberschrift
+        vorname: Vorname
+        nachname: Nachname
+        strasseHausnummer: StrasseHausnummer
+        plzOrt: PlzOrt
+        email: Email
+        anliegen: Anliegen
+        button: Button
+      }
+    }
+  `).strapiFormular;
+
   return (
     <FourmularStyled>
-      <Title text="Schreibe mir eine Nachricht" center />
+      <Title text={ueberschrift} center />
       <div className="form">
-        <Input className="vorname" text="Vorname" />
-        <Input className="nachname" text="Nachname" />
-        <Input className="straße" text="Straße u. Hausnummer" />
-        <Input className="plz" text="Plz u. Ort" />
-        <Input className="email" text="Email" />
-        <Input className="anliegen" text="Ihr Anliegen" textarea />
-        <Button text="Nachricht Senden" />
+        <Input className="vorname" placeholder={vorname} />
+        <Input className="nachname" placeholder={nachname} />
+        <Input className="straße" placeholder={strasseHausnummer} />
+        <Input className="plz" placeholder={plzOrt} />
+        <Input className="email" placeholder={email} />
+        <Input className="anliegen" placeholder={anliegen} textarea />
+        <Button text={button} />
       </div>
     </FourmularStyled>
   );
@@ -51,7 +76,7 @@ const FourmularStyled = styled.section`
     button {
       grid-area: button;
     }
-    
+
     textarea {
       grid-area: textarea;
     }
