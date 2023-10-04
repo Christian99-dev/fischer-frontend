@@ -39,6 +39,7 @@ module.exports = {
       options: {
         apiURL: process.env.GATSBY_BACKEND_URL,
         singleTypes: [
+          "ueber-uns",
           "willkommen",
           {
             singularName: "auswahl",
