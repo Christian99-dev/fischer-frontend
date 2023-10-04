@@ -55,6 +55,16 @@ module.exports = {
               ],
             },
           },
+          {
+            singularName: "projekte",
+            queryParams: {
+              populate: [
+                "Kategorien.KategorieBild",
+                "Kategorien.Projekte",
+                "Kategorien.Projekte.Bild",
+              ],
+            },
+          },
         ],
         accessToken: process.env.GATSBY_BACKEND_API_TOKEN,
       },

@@ -1,17 +1,19 @@
 import React, { useEffect, useState } from "react";
 import Modal from "../components/Modal";
 import styled from "styled-components";
-import ImageFilter from "../components/ImageFilter";
 import Title from "../components/Title";
 import Slider from "../components/Slider";
+import GatsbyImgFilter from "../components/GatsbyImgFilter";
 
 const ProjectModal = ({ open, closeButton, data }) => {
+  const { projekte } = data;
+
   useEffect(() => {
     openBox(0);
   }, []);
 
   const [boxesOpen, setBoxesOpen] = useState(
-    new Array(data.projekte.lenght).fill(false)
+    new Array(projekte.lenght).fill(false)
   );
 
   const openBox = (index) => {
@@ -22,7 +24,7 @@ const ProjectModal = ({ open, closeButton, data }) => {
 
   return (
     <Modal
-      nobackground={"true"}
+      nobackground="true"
       open={open}
       closeButton={closeButton}
       layer={2}
@@ -32,16 +34,15 @@ const ProjectModal = ({ open, closeButton, data }) => {
           onSlideChange={(swiper) => {
             openBox(swiper.realIndex);
           }}
-          items={data.projekte.map((item, index) => (
-            <ImageFilter
+          items={data.projekte.map((projekt, index) => (
+            <GatsbyImgFilter
               key={index}
-              loading={false}
-              src={item.bild}
+              image={projekt.bild}
               background="true"
-            />
+            ></GatsbyImgFilter>
           ))}
         />
-        {data.projekte.map((item, index) => {
+        {projekte.map((item, index) => {
           return (
             <TextBox
               open={boxesOpen[index]}
@@ -66,11 +67,13 @@ const ProjectModalStyle = styled.div`
 const TextBox = ({ open, data, left }) => {
   return (
     <TextBoxStyle
-      className={(open ? "open" : "false") + " " + (left === "true" ? "left" : "right")}
+      className={
+        (open ? "open" : "false") + " " + (left === "true" ? "left" : "right")
+      }
     >
       <div className="title-wrapper">
         <div className="extra-bar" />
-        <Title left="true" text={data.name} />
+        <Title left="true" text={data.titel} />
       </div>
       <p>{data.beschreibung}</p>
     </TextBoxStyle>
