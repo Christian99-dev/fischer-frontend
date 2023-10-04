@@ -1,21 +1,27 @@
 import React from "react";
 import PolicyText from "../components/PolicyText";
-import { FetchRechtliches } from "../data/fetch";
 import Root from "../components/Root";
 import Footer from "../sections/Footer";
 import { Seo } from "../components/Seo";
+import { graphql, useStaticQuery } from "gatsby";
 
-const datenschutz = () => {
-  const { data, loading } = FetchRechtliches();
+const Datenschutz = () => {
+  const { datenschutz } = useStaticQuery(graphql`
+    query {
+      strapiRechtliches {
+        datenschutz: Datenschutzerklaerung
+      }
+    }
+  `).strapiRechtliches;
   return (
     <Root>
-      <PolicyText loading={loading} text={data?.datenschutz} />
+      <PolicyText text={datenschutz} />
       <Footer />
     </Root>
   );
 };
 
-export default datenschutz;
+export default Datenschutz;
 
 export const Head = () => (
   <>

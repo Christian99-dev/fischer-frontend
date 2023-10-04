@@ -5,13 +5,13 @@ import { navigate } from "@reach/router";
 import { FetchUnternehmen } from "../data/fetch";
 import parse from "html-react-parser";
 
-const PolicyText = ({ text, loading }) => {
-  const { data } = FetchUnternehmen();
+const PolicyText = ({ text }) => {
+  // const { data } = FetchUnternehmen();
   return (
     <PolicyTextStyle>
-      {data && (
+      {/* {data && (
         <img className="logo" src={data.logo} alt="Unternehmenslogo"></img>
-      )}
+      )} */}
       <div
         className="backbutton"
         onClick={() => {
@@ -21,7 +21,7 @@ const PolicyText = ({ text, loading }) => {
         <Icon name="left-black" />
         Zurück zur Homepage
       </div>
-      {!loading && <div className="policy">{parse(text)}</div>}
+      <div className="policy">{parse(text)}</div>
     </PolicyTextStyle>
   );
 };

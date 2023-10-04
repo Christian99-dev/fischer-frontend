@@ -44,6 +44,7 @@ module.exports = {
           "willkommen",
           "leistungen",
           "formular",
+          "rechtliches",
           {
             singularName: "footer",
             queryParams: {

@@ -1,21 +1,27 @@
 import React from "react";
 import PolicyText from "../components/PolicyText";
-import { FetchRechtliches } from "../data/fetch";
 import Root from "../components/Root";
 import Footer from "../sections/Footer";
 import { Seo } from "../components/Seo";
+import { graphql, useStaticQuery } from "gatsby";
 
-const impressum = () => {
-  const { data, loading } = FetchRechtliches();
+const Impressum = () => {
+  const { impressum } = useStaticQuery(graphql`
+    query {
+      strapiRechtliches {
+        impressum: Impressum
+      }
+    }
+  `).strapiRechtliches;
   return (
     <Root>
-      <PolicyText loading={loading} text={data?.impressum} />
+      <PolicyText text={impressum} />
       <Footer />
     </Root>
   );
 };
 
-export default impressum;
+export default Impressum;
 
 export const Head = () => (
   <>
