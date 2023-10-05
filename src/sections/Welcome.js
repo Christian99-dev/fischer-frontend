@@ -73,7 +73,7 @@ const Welcome = () => {
         />
       </div>
 
-      <Link className="downbutton" to="selection" smooth={true} duration={500}>
+      <Link className="downbutton" to="selection" href="#" smooth={true} duration={500}>
         <Fade direction="down">
           <Icon name="down" />
         </Fade>
