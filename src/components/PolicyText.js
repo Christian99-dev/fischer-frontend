@@ -2,16 +2,33 @@ import React from "react";
 import styled from "styled-components";
 import Icon from "./Icon";
 import { navigate } from "@reach/router";
-import { FetchUnternehmen } from "../data/fetch";
 import parse from "html-react-parser";
+import { graphql, useStaticQuery } from "gatsby";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 const PolicyText = ({ text }) => {
-  // const { data } = FetchUnternehmen();
+  const { logo } = useStaticQuery(graphql`
+    query {
+      strapiUnternehmen {
+        logo: Logo {
+          alternativeText
+          localFile {
+            childImageSharp {
+              gatsbyImageData(layout: CONSTRAINED)
+            }
+          }
+        }
+      }
+    }
+  `).strapiUnternehmen;
   return (
     <PolicyTextStyle>
-      {/* {data && (
-        <img className="logo" src={data.logo} alt="Unternehmenslogo"></img>
-      )} */}
+      <GatsbyImage
+        image={getImage(logo.localFile)}
+        alt={logo.alternativeText}
+        className="logo"
+      />
+
       <div
         className="backbutton"
         onClick={() => {
@@ -40,7 +57,7 @@ const PolicyTextStyle = styled.div`
     align-items: center;
     gap: var(--space-lg);
   }
-  
+
   .policy {
     margin: var(--space-lg) 0;
     height: 100%;
