@@ -6,9 +6,17 @@ import { graphql, useStaticQuery } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 const Footer = () => {
-  const { spalten, logo } = useStaticQuery(graphql`
+  const { strapiUnternehmen, strapiFooter } = useStaticQuery(graphql`
     query {
       strapiFooter {
+        spalten: Spalten {
+          ueberschrift: Ueberschrift
+          reihen: Reihen {
+            text: Text
+          }
+        }
+      }
+      strapiUnternehmen {
         logo: Logo {
           alternativeText
           localFile {
@@ -17,15 +25,12 @@ const Footer = () => {
             }
           }
         }
-        spalten: Spalten {
-          ueberschrift: Ueberschrift
-          reihen: Reihen {
-            text: Text
-          }
-        }
       }
     }
-  `).strapiFooter;
+  `);
+
+  const { spalten } = strapiFooter;
+  const { logo } = strapiUnternehmen;
 
   return (
     <FooterStyle>

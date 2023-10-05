@@ -45,11 +45,11 @@ module.exports = {
           "leistungen",
           "formular",
           "rechtliches",
+          "unternehmen",
           {
             singularName: "footer",
             queryParams: {
               populate: [
-                "Logo",
                 "Spalten.Reihen",
               ],
             },
