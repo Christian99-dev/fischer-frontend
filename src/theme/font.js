@@ -1,4 +1,4 @@
-import { css } from "styled-components";
+import { css } from "gatsby-plugin-styled-components";
 import { responsiveCSS } from "../services/Theme/responsive";
 
 export default css`

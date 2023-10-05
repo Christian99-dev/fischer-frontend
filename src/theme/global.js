@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from "gatsby-plugin-styled-components";
 import colors from "./colors";
 import spacing from "./spacing";
 import typescale from "./typescaleDynamic";

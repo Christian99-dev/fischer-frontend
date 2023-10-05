@@ -20,7 +20,7 @@ font_data = {
 }
 
 with open("../../theme/typescaleDynamic.js", "w+") as cssfile:
-    head = "import { css } from 'styled-components';\nimport { device } from './breakpoints';\n\nexport default css`\n  :root {\n"
+    head = "import { css } from 'gatsby-plugin-styled-components';\nimport { device } from './breakpoints';\n\nexport default css`\n  :root {\n"
     footer = "}\n`;"
     dynamic = ""
     

@@ -1,4 +1,4 @@
-import { css } from "styled-components";
+import { css } from "gatsby-plugin-styled-components";
 
 export default css`
   :root {

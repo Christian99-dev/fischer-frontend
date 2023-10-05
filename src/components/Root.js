@@ -1,5 +1,5 @@
 import React from "react";
-import { styled } from "styled-components";
+import { styled } from "gatsby-plugin-styled-components";
 import GlobalStyle from "../theme/global";
 
 const Root = ({ children }) => {

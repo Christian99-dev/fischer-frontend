@@ -10,7 +10,14 @@ module.exports = {
   plugins: [
     `gatsby-plugin-image`,
     `gatsby-transformer-sharp`,
-    "gatsby-plugin-styled-components",
+    "babel-plugin-styled-components",
+    {
+      resolve: `gatsby-plugin-styled-components`,
+      options: {
+        ssr: true,
+        minify: true,
+      },
+    },
     {
       resolve: `gatsby-plugin-sharp`,
       options: {
@@ -44,9 +51,7 @@ module.exports = {
           {
             singularName: "footer",
             queryParams: {
-              populate: [
-                "Spalten.Reihen",
-              ],
+              populate: ["Spalten.Reihen"],
             },
           },
           {

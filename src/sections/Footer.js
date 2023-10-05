@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components";
+import styled from "gatsby-plugin-styled-components";
 import HoverLink from "../components/HoverLink";
 import AutoLink from "../components/AutoLink";
 import { graphql, useStaticQuery } from "gatsby";

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { styled } from "styled-components";
+import { styled } from "gatsby-plugin-styled-components";
 import Icon from "../components/Icon";
 import AboutUsModal from "./AboutUsModal";
 import LeistungenModal from "./LeistungenModal";

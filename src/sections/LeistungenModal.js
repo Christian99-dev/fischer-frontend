@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Modal from "../components/Modal";
-import styled from "styled-components";
+import styled from "gatsby-plugin-styled-components";
 import { graphql, useStaticQuery } from "gatsby";
 import GatsbyImgFilter from "../components/GatsbyImgFilter";
 
