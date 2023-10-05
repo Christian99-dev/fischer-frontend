@@ -26,10 +26,10 @@ const Welcome = () => {
     <WelcomeStyle>
       <div className="text-wrapper">
         <Fade>
-          <h1>{titel}</h1>
+          <p>{titel}</p>
         </Fade>
         <Fade delay={200}>
-          <h2>{untertitel}</h2>
+          <h1>{untertitel}</h1>
         </Fade>
       </div>
 
@@ -81,7 +81,7 @@ const WelcomeStyle = styled.section`
     z-index: 40;
     height: min-content;
 
-    h1 {
+    p {
       position: relative;
       font-size: var(--fs-bigtitle);
       font-family: "Lobster Two", normal;
@@ -89,7 +89,7 @@ const WelcomeStyle = styled.section`
       padding-bottom: var(--space-sm);
     }
 
-    h2 {
+    h1 {
       position: relative;
       font-size: var(--fs-3);
       font-weight: 500;

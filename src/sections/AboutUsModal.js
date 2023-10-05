@@ -32,7 +32,7 @@ const AboutUsModal = ({ open, closeButton }) => {
           color="var(--blue)"
         />
         <div className="textsection">
-          <h1>{ueberschrift}</h1>
+          <p className="ueberschrift">{ueberschrift}</p>
           <p>{text}</p>
         </div>
       </AboutUsModalStyle>
@@ -50,11 +50,10 @@ const AboutUsModalStyle = styled.div`
     width: 60%;
     color: white;
 
-    h1 {
+    .ueberschrift {
       font-size: calc(var(--fs-bigtitle) / 1.5);
       font-family: "Lobster Two", normal;
       font-weight: 100;
-      padding-bottom: var(--space-lg);
     }
 
     p {

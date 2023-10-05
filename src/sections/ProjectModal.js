@@ -17,19 +17,13 @@ const ProjectModal = ({ open, closeButton, data }) => {
     newBoxes[index] = true;
     setBoxesOpen(newBoxes);
   };
-  
+
   const [boxesOpen, setBoxesOpen] = useState(
     new Array(projekte.lenght).fill(false)
   );
 
-
   return (
-    <Modal
-      nobackground="true"
-      open={open}
-      closeButton={closeButton}
-      layer={2}
-    >
+    <Modal nobackground="true" open={open} closeButton={closeButton} layer={2}>
       <ProjectModalStyle>
         <Slider
           onSlideChange={(swiper) => {
@@ -74,7 +68,7 @@ const TextBox = ({ open, data, left }) => {
     >
       <div className="title-wrapper">
         <div className="extra-bar" />
-        <Title left="true" text={data.titel} />
+        <Title left="true" text={data.titel} tag="h4" />
       </div>
       <p>{data.beschreibung}</p>
     </TextBoxStyle>
@@ -132,6 +126,8 @@ const TextBoxStyle = styled.div`
   }
 
   .title {
-    font-size: var(--fs-2);
+    h4 {
+      font-size: var(--fs-2);
+    }
   }
 `;

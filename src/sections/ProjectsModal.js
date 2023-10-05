@@ -64,7 +64,7 @@ const ProjectsModal = ({ open, closeButton }) => {
           <React.Fragment key={index}>
             <BoxStyle className="auswahl" onClick={() => openModal(index)}>
               <div className="textbox">
-                <h2>{kategorie.name}</h2>
+                <h3>{kategorie.name}</h3>
                 <Icon name="add" className="add-icon" />
               </div>
 
@@ -109,7 +109,7 @@ const BoxStyle = styled.div`
     width: 100%;
     z-index: 150;
 
-    h2 {
+    h3 {
       text-align: center;
       color: white;
       font-size: var(--fs-4);

@@ -1,19 +1,23 @@
 import React from "react";
 import { css, styled } from "styled-components";
 
-const Title = ({ text, left, center, className="title" }) => {
+const Title = ({ text, left, center, className = "title", tag = "h2" }) => {
   if (center) {
     return (
       <TitleCenterStyle className={className}>
         <div className="filler" />
-        <h2>{text}</h2>
+        {tag == "h2" && <h2>{text}</h2>}
+        {tag == "h3" && <h3>{text}</h3>}
+        {tag == "h4" && <h4>{text}</h4>}
         <div className="filler right" />
       </TitleCenterStyle>
     );
   }
   return (
     <TitleStyle className={className} left={left}>
-      {text}
+      {tag == "h2" && <h2>{text}</h2>}
+      {tag == "h3" && <h3>{text}</h3>}
+      {tag == "h4" && <h4>{text}</h4>}
     </TitleStyle>
   );
 };
@@ -31,13 +35,17 @@ const BaseBorder = css`
   border-bottom: 2px solid white;
 `;
 
-const TitleStyle = styled.h2`
-  ${BaseFont}
-  ${BaseBorder}
-  text-align: left;
-  padding-right: ${(props) => props.right};
-  margin-left: ${(props) => props.left};
-  padding-bottom: var(--space-md);
+const TitleStyle = styled.div`
+  h2,
+  h3,
+  h4 {
+    ${BaseFont}
+    ${BaseBorder}
+    text-align: left;
+    padding-right: ${(props) => props.right};
+    margin-left: ${(props) => props.left};
+    padding-bottom: var(--space-md);
+  }
 `;
 
 const TitleCenterStyle = styled.div`
@@ -50,7 +58,9 @@ const TitleCenterStyle = styled.div`
       ${BaseBorder}
     }
   }
-  h2 {
+  h2,
+  h3,
+  h4 {
     ${BaseFont}
     ${BaseBorder}
     padding-bottom: var(--space-md);

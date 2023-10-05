@@ -3,7 +3,7 @@ import styled from "styled-components";
 import Icon from "./Icon";
 import { navigate } from "@reach/router";
 import parse from "html-react-parser";
-import { graphql, useStaticQuery } from "gatsby";
+import { Link, graphql, useStaticQuery } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 const PolicyText = ({ text }) => {
@@ -29,15 +29,13 @@ const PolicyText = ({ text }) => {
         className="logo"
       />
 
-      <div
+      <Link
         className="backbutton"
-        onClick={() => {
-          navigate("/");
-        }}
+        to="/"
       >
         <Icon name="left-black" />
         Zurück zur Homepage
-      </div>
+      </Link>
       <div className="policy">{parse(text)}</div>
     </PolicyTextStyle>
   );
@@ -50,10 +48,14 @@ const PolicyTextStyle = styled.div`
   padding: var(--space-xxl);
   height: 100vh;
 
-  .backbutton {
+  a {
+    text-decoration: none;
+    color: black;
+    background-color: transparent;
     cursor: pointer;
     font-size: var(--fs-4);
     display: flex;
+    height: min-content;
     align-items: center;
     gap: var(--space-lg);
   }
