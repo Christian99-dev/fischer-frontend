@@ -2,7 +2,7 @@ import React from "react";
 import PolicyText from "../components/PolicyText";
 import Root from "../components/Root";
 import Footer from "../sections/Footer";
-import { Seo, SeoHeader } from "../components/SeoHeader";
+import { SeoHeader } from "../components/SeoHeader";
 import { graphql, useStaticQuery } from "gatsby";
 
 const Impressum = () => {

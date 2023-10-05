@@ -12,15 +12,16 @@ const ProjectModal = ({ open, closeButton, data }) => {
     openBox(0);
   }, []);
 
-  const [boxesOpen, setBoxesOpen] = useState(
-    new Array(projekte.lenght).fill(false)
-  );
-
   const openBox = (index) => {
     const newBoxes = new Array(data.projekte.lenght).fill(false);
     newBoxes[index] = true;
     setBoxesOpen(newBoxes);
   };
+  
+  const [boxesOpen, setBoxesOpen] = useState(
+    new Array(projekte.lenght).fill(false)
+  );
+
 
   return (
     <Modal

@@ -1,8 +1,6 @@
-import React, { useEffect, useState } from "react";
-import { FetchProjects } from "../data/fetch";
+import React, { useState } from "react";
 import Modal from "../components/Modal";
 import styled from "styled-components";
-import ImageFilter from "../components/ImageFilter";
 import Icon from "../components/Icon";
 import ProjectModal from "./ProjectModal";
 import { graphql, useStaticQuery } from "gatsby";

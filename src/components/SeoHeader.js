@@ -31,7 +31,7 @@ export const SeoHeader = ({ pageName, children }) => {
     }
   `);
 
-  const { webseitenUrl, webseitenTitel, favicon } = strapiSeo;
+  const { /* webseitenUrl,*/ webseitenTitel, favicon } = strapiSeo;
 
   return (
     <>
