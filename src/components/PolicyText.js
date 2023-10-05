@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "gatsby-plugin-styled-components";
 import Icon from "./Icon";
-import { navigate } from "@reach/router";
 import parse from "html-react-parser";
 import { Link, graphql, useStaticQuery } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";

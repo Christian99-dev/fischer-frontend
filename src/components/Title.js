@@ -6,18 +6,18 @@ const Title = ({ text, left, center, className = "title", tag = "h2" }) => {
     return (
       <TitleCenterStyle className={className}>
         <div className="filler" />
-        {tag == "h2" && <h2>{text}</h2>}
-        {tag == "h3" && <h3>{text}</h3>}
-        {tag == "h4" && <h4>{text}</h4>}
+        {tag === "h2" && <h2>{text}</h2>}
+        {tag === "h3" && <h3>{text}</h3>}
+        {tag === "h4" && <h4>{text}</h4>}
         <div className="filler right" />
       </TitleCenterStyle>
     );
   }
   return (
     <TitleStyle className={className} left={left}>
-      {tag == "h2" && <h2>{text}</h2>}
-      {tag == "h3" && <h3>{text}</h3>}
-      {tag == "h4" && <h4>{text}</h4>}
+      {tag === "h2" && <h2>{text}</h2>}
+      {tag === "h3" && <h3>{text}</h3>}
+      {tag === "h4" && <h4>{text}</h4>}
     </TitleStyle>
   );
 };
