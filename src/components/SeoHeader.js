@@ -32,6 +32,7 @@ export const SeoHeader = ({ endung, children }) => {
   `);
 
   const { webseitenUrl, webseitenTitel, favicon } = strapiSeo;
+  const can = endung !== "index" ? webseitenUrl + "/" + endung : webseitenUrl
 
   return (
     <>
@@ -41,7 +42,7 @@ export const SeoHeader = ({ endung, children }) => {
       <meta name="description" content={strapiSeo[endung].desc} />
       <link rel="stylesheet" type="text/css" href="/fonts/fontface.css" />
       <link rel="icon" href={addMediaLink(favicon.formats.small.url)} />
-      <link rel="canonical" href={webseitenUrl + "/" + endung} />
+      <link rel="canonical" href={can} />
       {children}
     </>
   );
