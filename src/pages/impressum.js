@@ -23,4 +23,4 @@ const Impressum = () => {
 
 export default Impressum;
 
-export const Head = () => <SeoHeader pageName="Impressum" />
+export const Head = () => <SeoHeader endung="impressum" />

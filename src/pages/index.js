@@ -19,6 +19,6 @@ const index = () => {
   );
 };
 
-export const Head = () => <SeoHeader pageName="Homepage" />
+export const Head = () => <SeoHeader endung="index" />
 
 export default index;

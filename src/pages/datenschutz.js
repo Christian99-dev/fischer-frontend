@@ -23,4 +23,4 @@ const Datenschutz = () => {
 
 export default Datenschutz;
 
-export const Head = () => <SeoHeader pageName="Datenschutzerklaerung" />
+export const Head = () => <SeoHeader endung="datenschutz" />
