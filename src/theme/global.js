@@ -1,8 +1,7 @@
-import { createGlobalStyle } from "gatsby-plugin-styled-components";
+import { createGlobalStyle } from "styled-components";
 import colors from "./colors";
 import spacing from "./spacing";
 import typescale from "./typescaleDynamic";
-import variables from "./variables";
 import font from "./font";
 
 const GlobalStyle = createGlobalStyle`
@@ -17,7 +16,6 @@ const GlobalStyle = createGlobalStyle`
     
     ${colors}
     ${spacing}
-    ${variables}
     ${typescale}
     ${font}
     
