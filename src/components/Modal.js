@@ -1,5 +1,5 @@
 import React from "react";
-import { styled } from "gatsby-plugin-styled-components";
+import { styled } from "styled-components";
 import Icon from "./Icon";
 
 const Modal = ({ nobackground, open, children, closeButton, layer = 1 }) => {

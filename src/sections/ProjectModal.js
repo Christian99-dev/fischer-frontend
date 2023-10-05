@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Modal from "../components/Modal";
-import styled from "gatsby-plugin-styled-components";
+import styled from "styled-components";
 import Title from "../components/Title";
 import Slider from "../components/Slider";
 import GatsbyImgFilter from "../components/GatsbyImgFilter";

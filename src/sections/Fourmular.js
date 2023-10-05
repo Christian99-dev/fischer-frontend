@@ -1,5 +1,5 @@
 import React from "react";
-import { styled } from "gatsby-plugin-styled-components";
+import { styled } from "styled-components";
 import Button from "../components/Button";
 import Input from "../components/Input";
 import Title from "../components/Title";

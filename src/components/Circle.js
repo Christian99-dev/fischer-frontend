@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "gatsby-plugin-styled-components";
+import styled from "styled-components";
 
 const Circle = ({ children, padding = "0px" }) => {
   return <CircleStyle padding={padding}>{children}</CircleStyle>;

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Modal from "../components/Modal";
-import styled from "gatsby-plugin-styled-components";
+import styled from "styled-components";
 import Icon from "../components/Icon";
 import ProjectModal from "./ProjectModal";
 import { graphql, useStaticQuery } from "gatsby";

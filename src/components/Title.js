@@ -1,5 +1,5 @@
 import React from "react";
-import { css, styled } from "gatsby-plugin-styled-components";
+import { css, styled } from "styled-components";
 
 const Title = ({ text, left, center, className = "title", tag = "h2" }) => {
   if (center) {

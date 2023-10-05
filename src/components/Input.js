@@ -1,5 +1,5 @@
 import React from "react";
-import { css, styled } from "gatsby-plugin-styled-components";
+import { css, styled } from "styled-components";
 
 const Input = ({ placeholder, value, textarea, className }) => {
 

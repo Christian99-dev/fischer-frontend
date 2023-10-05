@@ -1,6 +1,6 @@
 import React from "react";
 import { responsiveCSS } from "../services/Theme/responsive";
-import { styled } from "gatsby-plugin-styled-components";
+import { styled } from "styled-components";
 import addIcon from "../../static/Icons/add.svg";
 import closeIcon from "../../static/Icons/close.svg";
 import downIcon from "../../static/Icons/down.svg";

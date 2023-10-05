@@ -1,6 +1,6 @@
 import React from "react";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
-import styled from "gatsby-plugin-styled-components";
+import styled from "styled-components";
 
 const GatsbyImgFilter = ({ image, background, color, opacity, hover }) => {
   return (
