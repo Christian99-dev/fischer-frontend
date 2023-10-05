@@ -46,6 +46,7 @@ module.exports = {
           "formular",
           "rechtliches",
           "unternehmen",
+          "seo",
           {
             singularName: "footer",
             queryParams: {

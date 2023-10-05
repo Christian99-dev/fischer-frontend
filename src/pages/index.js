@@ -4,7 +4,7 @@ import Welcome from "../sections/Welcome";
 import Selection from "../sections/Selection";
 import Fourmular from "../sections/Fourmular";
 import Footer from "../sections/Footer";
-import { Seo } from "../components/Seo";
+import { SeoHeader } from "../components/SeoHeader";
 
 const index = () => {
   return (
@@ -19,11 +19,6 @@ const index = () => {
   );
 };
 
-export const Head = () => (
-  <>
-    <link rel="stylesheet" type="text/css" href="/fonts/fontface.css" />
-    <Seo title="Homepage" />
-  </>
-);
+export const Head = () => <SeoHeader pageName="Homepage" />
 
 export default index;
