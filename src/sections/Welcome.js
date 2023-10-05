@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { styled } from "styled-components";
 import Icon from "../components/Icon";
 import { Link } from "react-scroll";
@@ -6,11 +6,19 @@ import { Fade } from "react-awesome-reveal";
 import { graphql, useStaticQuery } from "gatsby";
 import { addMediaLink } from "../services/Utils/addMediaLink";
 import localvideo from "../../static/worker3sec.mp4";
+import { GatsbyImage, getImage } from "gatsby-plugin-image";
 
 const Welcome = () => {
   const [videoLoaded, setVideoLoaded] = useState(false);
+  const [timerDone, setTimerDone] = useState(false);
 
-  const { titel, untertitel, hintergrund, alternativeText } =
+  useEffect(() => {
+    setInterval(() => {
+      setTimerDone(true);
+    }, 1000);
+  })
+
+  const { titel, untertitel, hintergrund, alternativeText, thumbnail } =
     useStaticQuery(graphql`
       query {
         strapiWillkommen {
@@ -20,11 +28,17 @@ const Welcome = () => {
             url
             alternativeText
           }
+          thumbnail: Thumbnail {
+            alternativeText
+            localFile {
+              childImageSharp {
+                gatsbyImageData(layout: CONSTRAINED, placeholder: DOMINANT_COLOR)
+              }
+            }
+          }
         }
       }
     `).strapiWillkommen;
-
-  console.log(process.env.NODE_ENV);
 
   return (
     <WelcomeStyle>
@@ -38,7 +52,12 @@ const Welcome = () => {
       </div>
 
       <div className="video">
-        <div className={"filter " + (videoLoaded && "loaded")} />
+        <div className="filter" />
+        <GatsbyImage
+          className={"thumbnail " + (timerDone && videoLoaded && "loaded")}
+          image={getImage(thumbnail.localFile)}
+          alt={thumbnail.alternativeText}
+        />
         <video
           src={
             process.env.NODE_ENV === "development"
@@ -119,29 +138,33 @@ const WelcomeStyle = styled.section`
     }
   }
 
-  .image-filter {
-    top: 0;
-    position: absolute;
-  }
-
   .video {
     position: absolute;
     width: 100%;
     height: 100%;
     top: 0;
+    object-fit: cover;
+
+    .thumbnail {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      z-index: 31;
+      opacity: 1;
+
+      &.loaded {
+        opacity: 0;
+        transition: opacity 0.5s ease-in;
+      }
+    }
 
     .filter {
       position: absolute;
       height: 100%;
       width: 100%;
-      z-index: 31;
+      z-index: 32;
       background-color: var(--black);
-      opacity: 1;
-
-      &.loaded {
-        opacity: 0.6;
-        transition: opacity 0.4s ease-in;
-      }
+      opacity: 0.4;
     }
 
     video {
