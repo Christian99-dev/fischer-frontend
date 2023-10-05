@@ -16,7 +16,7 @@ const Welcome = () => {
     setInterval(() => {
       setTimerDone(true);
     }, 1000);
-  })
+  });
 
   const { titel, untertitel, hintergrund, alternativeText, thumbnail } =
     useStaticQuery(graphql`
@@ -32,7 +32,10 @@ const Welcome = () => {
             alternativeText
             localFile {
               childImageSharp {
-                gatsbyImageData(layout: CONSTRAINED, placeholder: DOMINANT_COLOR)
+                gatsbyImageData(
+                  layout: CONSTRAINED
+                  placeholder: DOMINANT_COLOR
+                )
               }
             }
           }
@@ -43,9 +46,7 @@ const Welcome = () => {
   return (
     <WelcomeStyle>
       <div className="text-wrapper">
-        <Fade>
-          <p>{titel}</p>
-        </Fade>
+        <p>{titel}</p>
         <Fade delay={200}>
           <h1>{untertitel}</h1>
         </Fade>
