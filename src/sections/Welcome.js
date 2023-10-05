@@ -5,22 +5,26 @@ import { Link } from "react-scroll";
 import { Fade } from "react-awesome-reveal";
 import { graphql, useStaticQuery } from "gatsby";
 import { addMediaLink } from "../services/Utils/addMediaLink";
+import localvideo from "../../static/worker3sec.mp4";
 
 const Welcome = () => {
   const [videoLoaded, setVideoLoaded] = useState(false);
 
-  const { titel, untertitel, hintergrund, alternativeText } = useStaticQuery(graphql`
-    query {
-      strapiWillkommen {
-        titel: Titel
-        untertitel: Untertitel
-        hintergrund: Hintergrund {
-          url
-          alternativeText
+  const { titel, untertitel, hintergrund, alternativeText } =
+    useStaticQuery(graphql`
+      query {
+        strapiWillkommen {
+          titel: Titel
+          untertitel: Untertitel
+          hintergrund: Hintergrund {
+            url
+            alternativeText
+          }
         }
       }
-    }
-  `).strapiWillkommen;
+    `).strapiWillkommen;
+
+  console.log(process.env.NODE_ENV);
 
   return (
     <WelcomeStyle>
@@ -36,12 +40,16 @@ const Welcome = () => {
       <div className="video">
         <div className={"filter " + (videoLoaded && "loaded")} />
         <video
-          src={addMediaLink(hintergrund.url)}
+          src={
+            process.env.NODE_ENV === "development"
+              ? addMediaLink(hintergrund.url)
+              : localvideo
+          }
           title={alternativeText}
           autoPlay
           loop
           muted
-          onLoadedData={() => setVideoLoaded(true)}
+          onCanPlay={() => setVideoLoaded(true)}
         />
       </div>
 
