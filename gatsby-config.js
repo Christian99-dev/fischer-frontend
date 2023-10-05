@@ -35,6 +35,12 @@ module.exports = {
       },
     },
     {
+      resolve: 'gatsby-plugin-zopfli',
+      options: {
+        extensions: ['css', 'html', 'js', 'svg', "py"]
+      }
+    },
+    {
       resolve: "gatsby-source-strapi",
       options: {
         apiURL: process.env.GATSBY_BACKEND_URL,
