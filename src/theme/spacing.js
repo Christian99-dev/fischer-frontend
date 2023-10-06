@@ -11,6 +11,6 @@ export default css`
     ${responsiveCSS("--space-xl",     80,  52,  28,     20,    16,  14)};
     ${responsiveCSS("--space-xxl",    100,  80,  44,     32,    24,  20)};
     ${responsiveCSS("--space-xxxl",   200,  160, 112,    60,    40,  32)};
-    ${responsiveCSS("--space-giant",  600,  480, 320, 160,    80,  60)};
+    ${responsiveCSS("--space-giant",  600,  480, 200, 160,    80,  60)};
   }
 `;

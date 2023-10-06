@@ -13,7 +13,7 @@ const index = () => {
       <main>
         <Welcome />
         <Selection />
-        {/* <Fourmular /> */}
+        <Fourmular />
       </main>
       {/* <Footer /> */}
     </Root>

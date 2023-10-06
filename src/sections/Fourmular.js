@@ -4,6 +4,7 @@ import Button from "../components/Button";
 import Input from "../components/Input";
 import Title from "../components/Title";
 import { graphql, useStaticQuery } from "gatsby";
+import { device } from "../theme/breakpoints";
 
 const Fourmular = () => {
   const {
@@ -58,6 +59,7 @@ const FourmularStyled = styled.section`
   }
 
   .form {
+    height: min-content;
     display: grid;
     gap: var(--space-md);
     grid-template-columns: 1fr 1fr;
@@ -67,11 +69,11 @@ const FourmularStyled = styled.section`
     flex-direction: column;
     padding: 0 var(--space-giant);
     grid-template-areas:
-      ". ."
-      ". textarea"
-      ". textarea"
-      ". textarea"
-      "button button";
+      "vorname  nachname"
+      "straße   textarea"
+      "plz      textarea"
+      "email    textarea"
+      "button   button";
 
     button {
       grid-area: button;
@@ -79,6 +81,50 @@ const FourmularStyled = styled.section`
 
     textarea {
       grid-area: textarea;
+    }
+    .plz {
+      grid-area: plz;
+    }
+    .straße {
+      grid-area: straße;
+    }
+    .email {
+      grid-area: email;
+    }
+    .vorname {
+      grid-area: vorname;
+    }
+    .nachname {
+      grid-area: nachname;
+    }
+  }
+
+  @media ${device.tablet} {
+    .form {
+      padding: 0 var(--space-xxxl);
+      grid-template-rows: 1fr 1fr 1fr 1fr 3fr;
+      grid-template-areas:
+        "vorname  nachname"
+        "straße   straße"
+        "plz      plz"
+        "email    email"
+        "textarea textarea"
+        "button   button";
+    }
+  }
+
+  @media ${device.tablet_sm} {
+    .form {
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr 1fr 1fr 1fr 1fr 3fr;
+      grid-template-areas:
+        "vorname"
+        "nachname"
+        "straße"
+        "plz"
+        "email"
+        "textarea"
+        "button";
     }
   }
 `;
