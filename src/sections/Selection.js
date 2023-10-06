@@ -86,7 +86,7 @@ const SelectionStyle = styled.section`
   justify-content: space-between;
   gap: var(--space-lg);
 
-  @media ${device.laptop} {
+  @media ${device.tablet} {
     flex-direction: column;
   }
 `;
@@ -136,6 +136,20 @@ const CardStyle = styled.div`
     .icon {
       position: relative;
       z-index: 30;
+    }
+  }
+
+  @media ${device.tablet} {
+    align-items: center;
+    .textbox {
+      position: relative;
+      top: unset;
+      h2 {
+        padding: 0;
+      }
+      .icon {
+        display: none;
+      }
     }
   }
 `;

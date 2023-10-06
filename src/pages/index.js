@@ -11,7 +11,7 @@ const index = () => {
   return (
     <Root>
       <main>
-        {/* <Welcome /> */}
+        <Welcome />
         <Selection />
         {/* <Fourmular /> */}
       </main>
