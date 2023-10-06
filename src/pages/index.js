@@ -10,13 +10,13 @@ import SpaceVariableView from "../services/Utils/spaceVariableView";
 const index = () => {
   return (
     <Root>
-      {/* <main> */}
-        {/* <Welcome /> */}
-        {/* <Selection /> */}
-        {/* <Fourmular /> */}
-      {/* </main> */}
-      {/* <Footer /> */}
-      <SpaceVariableView/>
+      <main>
+        <Welcome />
+        <Selection />
+        <Fourmular />
+      </main>
+      <Footer />
+      {/* <SpaceVariableView/> */}
     </Root>
   );
 };

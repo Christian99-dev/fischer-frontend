@@ -39,6 +39,15 @@ export default css`
 		--fs-1: 25px;
 	}
 
+	@media ${device.tablet_sm} {
+		--fs-6: 15px;
+		--fs-5: 16px;
+		--fs-4: 17px;
+		--fs-3: 18px;
+		--fs-2: 19px;
+		--fs-1: 21px;
+	}
+
 	@media ${device.mobile} {
 		--fs-6: 15px;
 		--fs-5: 16px;

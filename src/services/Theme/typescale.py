@@ -16,6 +16,7 @@ font_data = {
     "desktop":      (16, 1.25, size),
     "laptop":       (16, 1.2,   size),
     "tablet":       (16, 1.125,  size),
+    "tablet_sm":    (16, 1.08,  size),
     "mobile":       (16, 1.067,   size)
 }
 
