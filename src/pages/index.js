@@ -16,7 +16,6 @@ const index = () => {
         <Fourmular />
       </main>
       <Footer />
-      {/* <SpaceVariableView/> */}
     </Root>
   );
 };
