@@ -11,11 +11,11 @@ const index = () => {
   return (
     <Root>
       <main>
-        <Welcome />
+        {/* <Welcome /> */}
         <Selection />
-        <Fourmular />
+        {/* <Fourmular /> */}
       </main>
-      <Footer />
+      {/* <Footer /> */}
     </Root>
   );
 };

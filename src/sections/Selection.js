@@ -6,6 +6,7 @@ import LeistungenModal from "./LeistungenModal";
 import ProjectsModal from "./ProjectsModal";
 import { graphql, useStaticQuery } from "gatsby";
 import GatsbyImgFilter from "../components/GatsbyImgFilter";
+import { device } from "../theme/breakpoints";
 
 const Selection = () => {
   const [showAboutUs, setShowAboutUs] = useState(false);
@@ -80,11 +81,14 @@ export default Selection;
 
 const SelectionStyle = styled.section`
   height: 100vh;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  display: flex;
   padding: var(--space-xxl) var(--space-xxxl);
   justify-content: space-between;
   gap: var(--space-lg);
+
+  @media ${device.laptop} {
+    flex-direction: column;
+  }
 `;
 
 const Card = ({ data, onClick }) => {
@@ -112,6 +116,7 @@ const CardStyle = styled.div`
   justify-content: center;
   cursor: pointer;
   background-color: black;
+  flex: 1;
 
   .textbox {
     pointer-events: none;
