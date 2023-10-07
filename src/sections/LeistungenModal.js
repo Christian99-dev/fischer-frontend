@@ -73,7 +73,8 @@ const BoxStyle = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: var(--space-md) var(--space-xxl);
+  padding: 0 var(--space-xxl);
+  
   cursor: pointer;
   background-color: transparent;
   transition: background-color 0.1s ease-out;
@@ -90,6 +91,7 @@ const BoxStyle = styled.div`
   h3 {
     font-weight: 500;
     font-size: var(--fs-4);
+    text-align: center;
   }
 
   .text {
