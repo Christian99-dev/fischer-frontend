@@ -5,6 +5,7 @@ import Icon from "../components/Icon";
 import ProjectModal from "./ProjectModal";
 import { graphql, useStaticQuery } from "gatsby";
 import GatsbyImgFilter from "../components/GatsbyImgFilter";
+import { device } from "../theme/breakpoints";
 
 const ProjectsModal = ({ open, closeButton }) => {
   const { kategorien } = useStaticQuery(graphql`
@@ -94,6 +95,10 @@ export default ProjectsModal;
 const ProjectsModalStyle = styled.div`
   display: flex;
   height: 100%;
+
+  @media ${device.tablet_sm} {
+    flex-direction: column;
+  }
 `;
 
 const BoxStyle = styled.div`
@@ -116,5 +121,9 @@ const BoxStyle = styled.div`
       font-weight: 500;
       padding-bottom: var(--space-xl);
     }
+  }
+
+  @media ${device.tablet_sm} {
+    flex: 1;
   }
 `;
