@@ -11,15 +11,15 @@ const index = () => {
   return (
     <Root>
       <main>
-        {/* <Welcome /> */}
-        {/* <Selection /> */}
-        {/* <Fourmular /> */}
+        <Welcome />
+        <Selection />
+        <Fourmular />
       </main>
       <Footer />
     </Root>
   );
 };
 
-export const Head = () => <SeoHeader endung="index" />
+export const Head = () => <SeoHeader endung="index" />;
 
 export default index;
