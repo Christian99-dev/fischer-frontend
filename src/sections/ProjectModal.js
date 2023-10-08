@@ -76,15 +76,16 @@ const TextBox = ({ open, data, left }) => {
 };
 
 const TextBoxStyle = styled.div`
-  width: min-content;
   position: absolute;
   z-index: 210;
   color: white;
   background: rgba(0, 0, 0, 0.7);
-
+  
   bottom: var(--space-lg);
   padding: var(--space-lg);
   padding-left: 0px;
+
+  width: min-content;
   min-height: 300px;
 
   &.left {
