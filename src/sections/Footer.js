@@ -4,6 +4,8 @@ import HoverLink from "../components/HoverLink";
 import AutoLink from "../components/AutoLink";
 import { graphql, useStaticQuery } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import { responsiveCSS } from "../services/Theme/responsive";
+import { device } from "../theme/breakpoints";
 
 const Footer = () => {
   const { strapiUnternehmen, strapiFooter } = useStaticQuery(graphql`
@@ -39,6 +41,7 @@ const Footer = () => {
         alt={logo.alternativeText}
         className="logo"
       />
+
       <div className="horizontal-wrapper">
         <div className="sektions">
           {spalten.map((spalte, index) => (
@@ -78,7 +81,7 @@ const FooterStyle = styled.footer`
 
   .logo {
     img {
-      height: 200px;
+      ${responsiveCSS("height", 250, 200, 160, 130, 110, 100)}
     }
   }
 
@@ -116,6 +119,40 @@ const FooterStyle = styled.footer`
           display: flex;
           flex-direction: column;
           gap: var(--space-xs);
+        }
+      }
+    }
+  }
+
+  @media ${device.laptop} {
+    flex-direction: column-reverse;
+
+    .horizontal-wrapper {
+      padding-left: 0;
+      padding-bottom: var(--space-xxxl);
+    }
+
+    .logo {
+      text-align: center;
+
+      img {
+        margin: 0 auto;
+        width: auto;
+      }
+    }
+  }
+
+  @media ${device.tablet} {
+    .horizontal-wrapper {
+      .sektions {
+        flex-direction: column;
+        gap: var(--space-xxxl);
+        align-items: center;
+        .sektion {
+          text-align: center;
+          width: min-content;
+          padding: 0;
+          border: none;
         }
       }
     }
