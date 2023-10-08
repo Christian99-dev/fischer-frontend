@@ -5,12 +5,17 @@ import { Pagination, Navigation } from "swiper";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import { device } from "../theme/breakpoints";
 
 const Slider = ({ items, onSlideChange }) => {
   return (
     <SliderStyle>
-      <Swiper onSlideChange={onSlideChange} navigation={{ clickable: true }}
-      pagination={{ clickable: true, dynamicBullets: true }} modules={[Pagination, Navigation]} >
+      <Swiper
+        onSlideChange={onSlideChange}
+        navigation={{ clickable: true }}
+        pagination={{ clickable: true, dynamicBullets: true }}
+        modules={[Pagination, Navigation]}
+      >
         {items.map((item, index) => (
           <SwiperSlide key={index}>{item}</SwiperSlide>
         ))}
@@ -34,15 +39,22 @@ const SliderStyle = styled.div`
       width: 10px;
     }
   }
-  .swiper-button-next, .swiper-button-prev {
+  .swiper-button-next,
+  .swiper-button-prev {
     color: white;
   }
 
-  .swiper-button-next{
+  .swiper-button-next {
     right: var(--space-lg);
   }
 
-  .swiper-button-prev{
+  .swiper-button-prev {
     left: var(--space-lg);
+  }
+
+  @media ${device.tablet_sm} {
+    .swiper-pagination {
+      top: var(--space-lg);
+    }
   }
 `;

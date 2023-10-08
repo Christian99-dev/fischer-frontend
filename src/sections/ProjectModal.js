@@ -4,6 +4,7 @@ import styled from "styled-components";
 import Title from "../components/Title";
 import Slider from "../components/Slider";
 import GatsbyImgFilter from "../components/GatsbyImgFilter";
+import { device, size } from "../theme/breakpoints";
 
 const ProjectModal = ({ open, closeButton, data }) => {
   const { projekte } = data;
@@ -80,13 +81,11 @@ const TextBoxStyle = styled.div`
   z-index: 210;
   color: white;
   background: rgba(0, 0, 0, 0.7);
-  
   bottom: var(--space-lg);
   padding: var(--space-lg);
   padding-left: 0px;
-
   width: min-content;
-  min-height: 300px;
+  height: min-content;
 
   &.left {
     left: var(--space-lg);
@@ -129,6 +128,22 @@ const TextBoxStyle = styled.div`
   .title {
     h4 {
       font-size: var(--fs-2);
+    }
+  }
+
+  @media ${device.mobile} {
+    &.right,
+    &.left {
+      left: 0;
+      right: 0;
+      bottom: 0;
+      width: 100%;
+    }
+
+    .title-wrapper {
+      .title {
+        min-width: min-content;
+      }
     }
   }
 `;
