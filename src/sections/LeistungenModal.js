@@ -96,7 +96,7 @@ const BoxStyle = styled.div`
 
     .text {
       grid-template-rows: 1fr;
-      transition: grid-template-rows 0.2s ease-in;
+      transition: grid-template-rows 0.15s ease-in;
     }
   }
 `;
