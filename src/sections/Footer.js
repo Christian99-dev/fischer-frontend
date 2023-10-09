@@ -4,7 +4,7 @@ import HoverLink from "../components/HoverLink";
 import AutoLink from "../components/AutoLink";
 import { graphql, useStaticQuery } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
-import { responsiveCSS } from "../services/Theme/responsive";
+import { responsiveCSS } from "../theme/responsive";
 import { device } from "../theme/breakpoints";
 
 const Footer = () => {

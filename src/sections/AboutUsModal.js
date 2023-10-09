@@ -3,7 +3,7 @@ import Modal from "../components/Modal";
 import { styled } from "styled-components";
 import { graphql, useStaticQuery } from "gatsby";
 import GatsbyImgFilter from "../components/GatsbyImgFilter";
-import { responsiveCSS } from "../services/Theme/responsive";
+import { responsiveCSS } from "../theme/responsive";
 
 const AboutUsModal = ({ open, closeButton }) => {
   const { ueberschrift, text, hintergrund } = useStaticQuery(graphql`

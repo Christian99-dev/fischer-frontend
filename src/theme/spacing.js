@@ -1,5 +1,5 @@
 import { css } from "styled-components";
-import { responsiveCSS } from "../services/Theme/responsive";
+import { responsiveCSS } from "../theme/responsive";
 
 export default css`
   :root {

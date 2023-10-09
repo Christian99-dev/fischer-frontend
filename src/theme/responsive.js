@@ -1,4 +1,4 @@
-import { device } from "../../theme/breakpoints";
+import { device } from "./breakpoints";
 
 export const responsiveCSS = (
   name,

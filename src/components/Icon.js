@@ -1,5 +1,5 @@
 import React from "react";
-import { responsiveCSS } from "../services/Theme/responsive";
+import { responsiveCSS } from "../theme/responsive";
 import { styled } from "styled-components";
 import addIcon from "../../static/Icons/add.svg";
 import closeIcon from "../../static/Icons/close.svg";
