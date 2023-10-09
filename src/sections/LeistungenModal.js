@@ -1,12 +1,10 @@
-import React, { useState } from "react";
+import React from "react";
 import Modal from "../components/Modal";
 import styled from "styled-components";
 import { graphql, useStaticQuery } from "gatsby";
 import GatsbyImgFilter from "../components/GatsbyImgFilter";
 
 const LeistungenModal = ({ open, closeButton }) => {
-
-  const [heights, setHeights] = useState([]);
   const { leistungen, hintergrund } = useStaticQuery(graphql`
     query {
       strapiLeistungen {
@@ -37,26 +35,13 @@ const LeistungenModal = ({ open, closeButton }) => {
         />
         <div className={"grid _" + leistungen.length}>
           {leistungen.map((leistung, index) => (
-            <BoxStyle pheight={heights[index]} key={index} className="leistung">
+            <BoxStyle key={index} className="leistung">
               <h3>{leistung.ueberschrift}</h3>
-              <div className="text main">
-                <p className="dot">•</p>
-                <p>{leistung.beschreibung}</p>
-              </div>
-              <div
-                className="text height-calculation"
-                ref={(el) => {
-                  if (
-                    el &&
-                    el?.clientHeight !== 0 &&
-                    heights.length < leistungen.length
-                  ) {
-                    setHeights((old) => [...old, el.clientHeight]);
-                  }
-                }}
-              >
-                <p className="dot">•</p>
-                <p>{leistung.beschreibung}</p>
+              <div className="text">
+                <div>
+                  <p className="dot">•</p>
+                  <p>{leistung.beschreibung}</p>
+                </div>
               </div>
             </BoxStyle>
           ))}
@@ -69,24 +54,14 @@ const LeistungenModal = ({ open, closeButton }) => {
 export default LeistungenModal;
 
 const BoxStyle = styled.div`
+  padding: 0 var(--space-xxl);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 0 var(--space-xxl);
-  
   cursor: pointer;
   background-color: transparent;
   transition: background-color 0.1s ease-out;
-
-  &:hover {
-    background-color: var(--blue);
-    transition: background-color 0.2s ease-in;
-    .text.main {
-      height: ${(props) => (props.pheight ? props.pheight + "px" : "0px")};
-      transition: height 0.2s ease-in;
-    }
-  }
 
   h3 {
     font-weight: 500;
@@ -100,23 +75,28 @@ const BoxStyle = styled.div`
     font-weight: 300;
     font-size: var(--fs-5);
     line-height: 1.2;
-    overflow: hidden;
+
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.1s ease-out;
+
+    > div {
+      overflow: hidden;
+    }
 
     .dot {
       padding-bottom: var(--space-sm);
       font-size: var(--fs-5);
     }
+  }
 
-    &.main {
-      height: 0px;
-      transition: height 0.1s ease-out;
-    }
+  &:hover {
+    background-color: var(--blue);
+    transition: background-color 0.2s ease-in;
 
-    &.height-calculation {
-      position: absolute;
-      opacity: 0;
-      z-index: -99;
-      pointer-events: none;
+    .text {
+      grid-template-rows: 1fr;
+      transition: grid-template-rows 0.2s ease-in;
     }
   }
 `;

@@ -3,7 +3,6 @@ import Modal from "../components/Modal";
 import { styled } from "styled-components";
 import { graphql, useStaticQuery } from "gatsby";
 import GatsbyImgFilter from "../components/GatsbyImgFilter";
-import { device } from "../theme/breakpoints";
 import { responsiveCSS } from "../services/Theme/responsive";
 
 const AboutUsModal = ({ open, closeButton }) => {
@@ -59,7 +58,6 @@ const AboutUsModalStyle = styled.div`
 
     .ueberschrift {
       font-size: calc(var(--fs-bigtitle) / 1.5);
-      /* font-size: var(--fs-1); */
       font-family: "Lobster Two", normal;
       font-weight: 100;
       padding-bottom: var(--space-lg);
