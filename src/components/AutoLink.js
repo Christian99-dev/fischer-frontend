@@ -9,9 +9,9 @@ const AutoLink = ({ to }) => {
 
   switch (status) {
     case 1:
-      return <HoverLink gatsbyLink="false" text={to} to={"tel:" + to} />;
+      return <HoverLink text={to} to={"tel:" + to} />;
     case 2:
-      return <HoverLink gatsbyLink="false" text={to} to={"mailto:" + to} />;
+      return <HoverLink text={to} to={"mailto:" + to} />;
     default:
       return <p>{to}</p>;
   }
