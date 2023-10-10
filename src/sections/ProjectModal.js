@@ -4,7 +4,7 @@ import styled from "styled-components";
 import Title from "../components/Title";
 import Slider from "../components/Slider";
 import GatsbyImgFilter from "../components/GatsbyImgFilter";
-import { device, size } from "../theme/breakpoints";
+import { device } from "../theme/breakpoints";
 
 const ProjectModal = ({ open, closeButton, data }) => {
   const { projekte } = data;

@@ -17,6 +17,9 @@ const Accordion = ({ data, show }) => {
         <div className="container">
           {data.map((item, index) => (
             <div
+              onKeyUp={() => openItem(index)}
+              role="button"
+              tabIndex={0}
               className={"item" + (items[index] ? " open" : "")}
               key={index}
               onClick={() => openItem(index)}

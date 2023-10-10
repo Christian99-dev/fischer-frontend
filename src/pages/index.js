@@ -5,7 +5,6 @@ import Selection from "../sections/Selection";
 import Fourmular from "../sections/Fourmular";
 import Footer from "../sections/Footer";
 import { SeoHeader } from "../components/SeoHeader";
-import SpaceVariableView from "../services/Utils/spaceVariableView";
 
 const index = () => {
   return (
