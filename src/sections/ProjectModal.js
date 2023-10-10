@@ -63,6 +63,10 @@ const ProjectModalStyle = styled.div`
     .swiper{
       position: relative;
       z-index: 120;
+
+      .swiper-slide{
+        z-index: 130;
+      }
     }
   }
 `;
