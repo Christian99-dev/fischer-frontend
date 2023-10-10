@@ -11,7 +11,7 @@ const ProjectModal = ({ open, closeButton, data }) => {
 
   useEffect(() => {
     openBox(0);
-  }, []);
+  }, []); // eslint-disable-line
 
   const openBox = (index) => {
     const newBoxes = new Array(data.projekte.lenght).fill(false);

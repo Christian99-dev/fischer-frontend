@@ -6,7 +6,7 @@ const Modal = ({ nobackground, open, children, closeButton, layer = 1 }) => {
   useEffect(() => {
     if(layer === 1)
       document.body.style.overflow = open ? "hidden" : "unset";
-  }, [open]);
+  }, [open]); // eslint-disable-line
   return (
     <ModalStyle
       style={{ zIndex: layer * 100 }}
