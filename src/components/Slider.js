@@ -55,6 +55,7 @@ const SliderStyle = styled.div`
   @media ${device.tablet_sm} {
     .swiper-pagination {
       top: var(--space-lg);
+      bottom: unset;
     }
   }
 `;

@@ -58,17 +58,6 @@ export default ProjectModal;
 const ProjectModalStyle = styled.div`
   height: 100%;
   position: relative;
-
-  .slider{
-    .swiper{
-      position: relative;
-      z-index: 120;
-
-      .swiper-slide{
-        z-index: 130;
-      }
-    }
-  }
 `;
 
 const TextBox = ({ open, data, left }) => {
