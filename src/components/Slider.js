@@ -9,7 +9,7 @@ import { device } from "../theme/breakpoints";
 
 const Slider = ({ items, onSlideChange }) => {
   return (
-    <SliderStyle>
+    <SliderStyle className="slider">
       <Swiper
         onSlideChange={onSlideChange}
         navigation={{ clickable: true }}
