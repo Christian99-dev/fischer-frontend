@@ -4,8 +4,12 @@ import styled from "styled-components";
 import { graphql, useStaticQuery } from "gatsby";
 import GatsbyImgFilter from "../components/GatsbyImgFilter";
 import BoxGrid from "../components/BoxGrid";
+import useDevice from "../services/Hooks/useDevice";
+import Accordion from "../components/Accordion";
 
 const LeistungenModal = ({ open, closeButton }) => {
+  const {mobile, tablet, tablet_sm, laptop, desktop, desktopXL} = useDevice();
+
   const { leistungen, hintergrund } = useStaticQuery(graphql`
     query {
       strapiLeistungen {
@@ -34,7 +38,8 @@ const LeistungenModal = ({ open, closeButton }) => {
           opacity={0.8}
           color="var(--blue)"
         />
-        <BoxGrid data={leistungen}/>
+        <BoxGrid show={tablet || laptop || desktop || desktopXL} data={leistungen} />
+        <Accordion show={tablet_sm || mobile} data={leistungen} />
       </LeistungenModalStyle>
     </Modal>
   );

@@ -16,6 +16,7 @@
   },
   "dependencies": {
     "@emotion/react": "^11.11.1",
+    "@uidotdev/usehooks": "^2.3.1",
     "babel-plugin-styled-components": "^2.1.4",
     "gatsby": "^5.12.1",
     "gatsby-plugin-image": "^3.12.0",

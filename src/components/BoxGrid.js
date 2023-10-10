@@ -1,22 +1,23 @@
 import React from "react";
 import styled from "styled-components";
 
-const BoxGrid = ({ data }) => {
-  return (
-    <GridStyle className={"_" + data.length}>
-      {data.map((item, index) => (
-        <BoxStyle key={index} className="leistung">
-          <h3>{item.ueberschrift}</h3>
-          <div className="text">
-            <div>
-              <p className="dot">•</p>
-              <p>{item.beschreibung}</p>
+const BoxGrid = ({ show, data }) => {
+  if (show)
+    return (
+      <GridStyle className={"_" + data.length}>
+        {data.map((item, index) => (
+          <BoxStyle key={index} className="leistung">
+            <h3>{item.ueberschrift}</h3>
+            <div className="text">
+              <div>
+                <p className="dot">•</p>
+                <p>{item.beschreibung}</p>
+              </div>
             </div>
-          </div>
-        </BoxStyle>
-      ))}
-    </GridStyle>
-  );
+          </BoxStyle>
+        ))}
+      </GridStyle>
+    );
 };
 
 export default BoxGrid;
