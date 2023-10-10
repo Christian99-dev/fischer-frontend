@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { styled } from "styled-components";
 import Icon from "./Icon";
 
 const Modal = ({ nobackground, open, children, closeButton, layer = 1 }) => {
+  useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "unset";
+  }, [open]);
   return (
     <ModalStyle
       style={{ zIndex: layer * 100 }}
