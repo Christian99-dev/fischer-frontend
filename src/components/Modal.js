@@ -4,7 +4,8 @@ import Icon from "./Icon";
 
 const Modal = ({ nobackground, open, children, closeButton, layer = 1 }) => {
   useEffect(() => {
-    document.body.style.overflow = open ? "hidden" : "unset";
+    if(layer === 1)
+      document.body.style.overflow = open ? "hidden" : "unset";
   }, [open]);
   return (
     <ModalStyle
