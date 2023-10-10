@@ -7,6 +7,7 @@ import { graphql, useStaticQuery } from "gatsby";
 import { addMediaLink } from "../services/Utils/addMediaLink";
 import localvideo from "../../static/worker3sec.mp4";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
+import { device } from "../theme/breakpoints";
 
 const Welcome = () => {
   const [videoLoaded, setVideoLoaded] = useState(false);
@@ -73,7 +74,13 @@ const Welcome = () => {
         />
       </div>
 
-      <Link className="downbutton" to="selection" href="#" smooth={true} duration={500}>
+      <Link
+        className="downbutton"
+        to="selection"
+        href="#"
+        smooth={true}
+        duration={500}
+      >
         <Fade direction="down">
           <Icon name="down" />
         </Fade>
@@ -136,6 +143,16 @@ const WelcomeStyle = styled.section`
     &:hover {
       bottom: var(--space-sm);
       transition: bottom 0.2s ease-in;
+    }
+  }
+
+  @media ${device.tablet_sm} {
+    .downbutton {
+      bottom: var(--space-giant);
+      &:hover {
+        bottom: var(--space-giant);
+        transition: unset;
+      }
     }
   }
 
