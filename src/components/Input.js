@@ -1,12 +1,12 @@
 import React from "react";
 import { css, styled } from "styled-components";
 
-const Input = ({ placeholder, value, textarea, className }) => {
+const Input = ({ placeholder, value, textarea, className, onChange, name }) => {
 
     if(textarea)
-        return <TextareaStyle className={className} value={value} placeholder={placeholder}/>
+        return <TextareaStyle onChange={onChange} name={name} className={className} value={value} placeholder={placeholder}/>
     else 
-        return <InputStyle className={className} value={value} placeholder={placeholder}/>
+        return <InputStyle onChange={onChange} name={name} className={className} value={value} placeholder={placeholder}/>
 
 };
 
