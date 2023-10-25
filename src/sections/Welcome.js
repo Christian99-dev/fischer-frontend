@@ -5,7 +5,6 @@ import { Link } from "react-scroll";
 import { Fade } from "react-awesome-reveal";
 import { graphql, useStaticQuery } from "gatsby";
 import { addMediaLink } from "../services/Utils/addMediaLink";
-import localvideo from "../../static/worker3sec.mp4";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { device } from "../theme/breakpoints";
 
