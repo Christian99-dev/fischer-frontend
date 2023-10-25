@@ -16,7 +16,7 @@ const Welcome = () => {
   useEffect(() => {
     setInterval(() => {
       setTimerDone(true);
-    }, 1000);
+    }, 600);
   });
 
   const { titel, untertitel, hintergrund, alternativeText, thumbnail } =
@@ -56,16 +56,12 @@ const Welcome = () => {
       <div className="video">
         <div className="filter" />
         <GatsbyImage
-          className={"thumbnail " + (timerDone && videoLoaded && "loaded")}
+          className={"thumbnail " + (videoLoaded && timerDone && "loaded")}
           image={getImage(thumbnail.localFile)}
           alt={thumbnail.alternativeText}
         />
         <video
-          src={
-            process.env.NODE_ENV === "development"
-              ? addMediaLink(hintergrund.url)
-              : localvideo
-          }
+          src={addMediaLink(hintergrund.url)}
           title={alternativeText}
           autoPlay
           loop
