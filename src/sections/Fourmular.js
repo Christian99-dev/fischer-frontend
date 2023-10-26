@@ -8,7 +8,7 @@ import { device } from "../theme/breakpoints";
 import * as yup from "yup";
 import { useFormik } from "formik";
 import { ToastContainer, toast } from "react-toastify";
-import 'react-toastify/dist/ReactToastify.css';
+import "react-toastify/dist/ReactToastify.css";
 
 const Fourmular = () => {
   const {
@@ -55,8 +55,48 @@ const Fourmular = () => {
     email,
     anliegen,
   }) => {
-    console.log(vorname, nachname, strasseHausnummer, plzOrt, email, anliegen);
-    toast.success("Ihre Nachricht wurde erfolgreich abgeschickt!", { theme: "colored" });
+    fetch(process.env.GATSBY_EMAIL_SERVER, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        text: "Das ist der inhalt",
+        from: email,
+        to: process.env.GATSBY_TEST_MAIL,
+        form: {
+          vorname,
+          nachname,
+          strasseHausnummer,
+          plzOrt,
+          email,
+          anliegen,
+        },
+      }),
+    })
+      .then((response) => {
+        if (response.ok) {
+          return response.json();
+        } else {
+          throw new Error();
+        }
+      })
+      .then((data) => {
+        toast.success("Ihre Nachricht wurde erfolgreich abgeschickt!", {
+          theme: "colored",
+        });
+        console.log("Antwort erhalten:", data); // delete
+      })
+      .catch((error) => {
+        toast.success(
+          "Ein Fehler ist aufgetreten! Bitte versuchen Sie es später noch einmal.",
+          {
+            theme: "colored",
+            type:"error"
+          }
+        );
+        console.log(error); // delete
+      });
   };
 
   const { values, handleChange, handleSubmit, errors } = useFormik({
