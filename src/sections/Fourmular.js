@@ -55,23 +55,21 @@ const Fourmular = () => {
     email,
     anliegen,
   }) => {
-    fetch(process.env.GATSBY_EMAIL_SERVER, {
+    toast.info("Einen moment bitte...", {
+      theme: "colored",
+    });
+    
+    fetch(process.env.GATSBY_EMAIL_FORWARD_URL, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        text: "Das ist der inhalt",
+        subject: "Das ist die Überschrift",
+        message: "Das ist der inhalt",
         from: email,
         to: process.env.GATSBY_TEST_MAIL,
-        form: {
-          vorname,
-          nachname,
-          strasseHausnummer,
-          plzOrt,
-          email,
-          anliegen,
-        },
+        key: process.env.GATSBY_EMAIL_FORWARD_KEY
       }),
     })
       .then((response) => {
@@ -81,21 +79,21 @@ const Fourmular = () => {
           throw new Error();
         }
       })
-      .then((data) => {
+      .then(_ => {
+        toast.dismiss()
         toast.success("Ihre Nachricht wurde erfolgreich abgeschickt!", {
           theme: "colored",
         });
-        console.log("Antwort erhalten:", data); // delete
       })
-      .catch((error) => {
+      .catch(_ => {
+        toast.dismiss()
         toast.success(
           "Ein Fehler ist aufgetreten! Bitte versuchen Sie es später noch einmal.",
           {
             theme: "colored",
-            type:"error"
+            type: "error",
           }
         );
-        console.log(error); // delete
       });
   };
 
@@ -125,6 +123,7 @@ const Fourmular = () => {
   });
 
   const checkErrors = () => {
+    if(errors != {}) toast.dismiss()
     if (errors.vorname) toast.error(errors.vorname, { theme: "colored" });
     if (errors.nachname) toast.error(errors.nachname, { theme: "colored" });
     if (errors.strasseHausnummer)
@@ -132,6 +131,7 @@ const Fourmular = () => {
     if (errors.plzOrt) toast.error(errors.plzOrt, { theme: "colored" });
     if (errors.email) toast.error(errors.email, { theme: "colored" });
     if (errors.anliegen) toast.error(errors.anliegen, { theme: "colored" });
+
   };
 
   return (
