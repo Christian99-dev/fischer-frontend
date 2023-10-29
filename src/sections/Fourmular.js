@@ -123,7 +123,7 @@ const Fourmular = () => {
   });
 
   const checkErrors = () => {
-    if(errors != {}) toast.dismiss()
+    toast.dismiss()
     if (errors.vorname) toast.error(errors.vorname, { theme: "colored" });
     if (errors.nachname) toast.error(errors.nachname, { theme: "colored" });
     if (errors.strasseHausnummer)
