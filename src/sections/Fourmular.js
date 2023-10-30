@@ -20,6 +20,7 @@ const Fourmular = () => {
     email,
     anliegen,
     button,
+    receiver
   } = useStaticQuery(graphql`
     query {
       strapiFormular {
@@ -31,6 +32,7 @@ const Fourmular = () => {
         email: Email
         anliegen: Anliegen
         button: Button
+        receiver: EmpfangsEmail
       }
     }
   `).strapiFormular;
@@ -68,7 +70,7 @@ const Fourmular = () => {
         subject: "Das ist die Überschrift",
         message: "Das ist der inhalt",
         from: email,
-        to: process.env.GATSBY_TEST_MAIL,
+        to: receiver,
         key: process.env.GATSBY_EMAIL_FORWARD_KEY
       }),
     })
