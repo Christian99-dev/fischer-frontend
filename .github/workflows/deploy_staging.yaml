@@ -6,8 +6,6 @@ on:
       - staging  
 
   repository_dispatch:
-    types:
-      - strapi-webhook
 
 jobs:
   build-and-deploy:
