@@ -6,6 +6,8 @@ on:
       - production  
 
   repository_dispatch:
+    types:
+      - strapi
 
 jobs:
   build-and-deploy:
