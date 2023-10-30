@@ -51,6 +51,7 @@ module.exports = {
           "leistungen",
           "formular",
           "formular-popup",
+          "formular-ausgangs-mail",
           "rechtliches",
           "unternehmen",
           "seo",

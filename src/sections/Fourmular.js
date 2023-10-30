@@ -11,32 +11,38 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const Fourmular = () => {
-  const { strapiFormular, strapiFormularPopup } = useStaticQuery(graphql`
-    query {
-      strapiFormular {
-        ueberschrift: Ueberschrift
-        vorname: Vorname
-        nachname: Nachname
-        strasseHausnummer: StrasseHausnummer
-        plzOrt: PlzOrt
-        email: Email
-        anliegen: Anliegen
-        button: Button
+  const { strapiFormular, strapiFormularPopup, strapiFormularAusgangsMail } =
+    useStaticQuery(graphql`
+      query {
+        strapiFormular {
+          ueberschrift: Ueberschrift
+          vorname: Vorname
+          nachname: Nachname
+          strasseHausnummer: StrasseHausnummer
+          plzOrt: PlzOrt
+          email: Email
+          anliegen: Anliegen
+          button: Button
+        }
+        strapiFormularPopup {
+          anliegenPopup: AnliegenPopup
+          emailPopup: EmailPopup
+          emailUngueltigPopup: EmailUngueltigPopup
+          fehlerPopup: FehlerPopup
+          nachnamePopup: NachnamePopup
+          nachrichtAbgeschicktPopup: NachrichtAbgeschicktPopup
+          plzOrtPopup: PlzOrtPopup
+          strasseHausnummerPopup: StrasseHausnummerPopup
+          vornamePopup: VornamePopup
+          bitteWartenPopup: BitteWartenPopup
+        }
+        strapiFormularAusgangsMail {
+          empfaenger: Empfaenger
+          betreff: Betreff
+          nachrichtenFormat: NachrichtenFormat
+        }
       }
-      strapiFormularPopup {
-        anliegenPopup: AnliegenPopup
-        emailPopup: EmailPopup
-        emailUngueltigPopup: EmailUngueltigPopup
-        fehlerPopup: FehlerPopup
-        nachnamePopup: NachnamePopup
-        nachrichtAbgeschicktPopup: NachrichtAbgeschicktPopup
-        plzOrtPopup: PlzOrtPopup
-        strasseHausnummerPopup: StrasseHausnummerPopup
-        vornamePopup: VornamePopup
-        bitteWartenPopup: BitteWartenPopup
-      }
-    }
-  `);
+    `);
 
   const {
     ueberschrift,
@@ -61,7 +67,9 @@ const Fourmular = () => {
     vornamePopup,
     bitteWartenPopup,
   } = strapiFormularPopup;
-  
+
+  const { empfaenger, betreff, nachrichtenFormat } = strapiFormularAusgangsMail;
+
   const onSubmit = (values, actions) => {
     actions.resetForm();
     send({
@@ -92,10 +100,10 @@ const Fourmular = () => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        subject: "Das ist die Überschrift",
-        message: "Das ist der inhalt",
+        subject: betreff,
+        message: nachrichtenFormat,
         from: email,
-        to: "test",
+        to: empfaenger,
         key: process.env.GATSBY_EMAIL_FORWARD_KEY,
       }),
     })
