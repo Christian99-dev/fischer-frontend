@@ -50,6 +50,7 @@ module.exports = {
           "willkommen",
           "leistungen",
           "formular",
+          "formular-popup",
           "rechtliches",
           "unternehmen",
           "seo",

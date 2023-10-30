@@ -20,7 +20,16 @@ const Fourmular = () => {
     email,
     anliegen,
     button,
-    receiver
+    anliegenPopup,
+    emailPopup,
+    emailUngueltigPopup,
+    fehlerPopup,
+    nachnamePopup,
+    nachrichtAbgeschicktPopup,
+    plzOrtPopup,
+    strasseHausnummerPopup,
+    vornamePopup,
+    bitteWartenPopup,
   } = useStaticQuery(graphql`
     query {
       strapiFormular {
@@ -32,10 +41,42 @@ const Fourmular = () => {
         email: Email
         anliegen: Anliegen
         button: Button
-        receiver: EmpfangsEmail
+      }
+      strapiFormularPopup {
+        anliegenPopup: AnliegenPopup
+        emailPopup: EmailPopup
+        emailUngueltigPopup: EmailUngueltigPopup
+        fehlerPopup: FehlerPopup
+        nachnamePopup: NachnamePopup
+        nachrichtAbgeschicktPopup: NachrichtAbgeschicktPopup
+        plzOrtPopup: PlzOrtPopup
+        strasseHausnummerPopup: StrasseHausnummerPopup
+        vornamePopup: VornamePopup
+        bitteWartenPopup: BitteWartenPopup
       }
     }
   `).strapiFormular;
+
+  console.log(
+    ueberschrift,
+    vorname,
+    nachname,
+    strasseHausnummer,
+    plzOrt,
+    email,
+    anliegen,
+    button,
+    anliegenPopup,
+    emailPopup,
+    emailUngueltigPopup,
+    fehlerPopup,
+    nachnamePopup,
+    nachrichtAbgeschicktPopup,
+    plzOrtPopup,
+    strasseHausnummerPopup,
+    vornamePopup,
+    bitteWartenPopup
+  );
 
   const onSubmit = (values, actions) => {
     actions.resetForm();
@@ -57,10 +98,10 @@ const Fourmular = () => {
     email,
     anliegen,
   }) => {
-    toast.info("Einen moment bitte...", {
+    toast.info(bitteWartenPopup, {
       theme: "colored",
     });
-    
+
     fetch(process.env.GATSBY_EMAIL_FORWARD_URL, {
       method: "POST",
       headers: {
@@ -70,8 +111,8 @@ const Fourmular = () => {
         subject: "Das ist die Überschrift",
         message: "Das ist der inhalt",
         from: email,
-        to: receiver,
-        key: process.env.GATSBY_EMAIL_FORWARD_KEY
+        to: "test",
+        key: process.env.GATSBY_EMAIL_FORWARD_KEY,
       }),
     })
       .then((response) => {
@@ -81,21 +122,18 @@ const Fourmular = () => {
           throw new Error();
         }
       })
-      .then(_ => {
-        toast.dismiss()
-        toast.success("Ihre Nachricht wurde erfolgreich abgeschickt!", {
+      .then((_) => {
+        toast.dismiss();
+        toast.success(nachrichtAbgeschicktPopup, {
           theme: "colored",
         });
       })
-      .catch(_ => {
-        toast.dismiss()
-        toast.success(
-          "Ein Fehler ist aufgetreten! Bitte versuchen Sie es später noch einmal.",
-          {
-            theme: "colored",
-            type: "error",
-          }
-        );
+      .catch((_) => {
+        toast.dismiss();
+        toast.success(fehlerPopup, {
+          theme: "colored",
+          type: "error",
+        });
       });
   };
 
@@ -109,23 +147,18 @@ const Fourmular = () => {
       anliegen: "",
     },
     validationSchema: yup.object().shape({
-      vorname: yup.string().required("Name darf nicht leer sein."),
-      nachname: yup.string().required("Nachname darf nicht leer sein."),
-      strasseHausnummer: yup
-        .string()
-        .required("Straße + Hausnummer darf nicht leer sein"),
-      plzOrt: yup.string().required("Plz + Ort darf nicht leer sein."),
-      email: yup
-        .string()
-        .email("Bitte gültige Email eingeben.")
-        .required("Email darf nicht leer sein."),
-      anliegen: yup.string().required("Anliegen darf nicht leer sein."),
+      vorname: yup.string().required(vornamePopup),
+      nachname: yup.string().required(nachnamePopup),
+      strasseHausnummer: yup.string().required(strasseHausnummerPopup),
+      plzOrt: yup.string().required(plzOrtPopup),
+      email: yup.string().email(emailUngueltigPopup).required(emailPopup),
+      anliegen: yup.string().required(anliegenPopup),
     }),
     onSubmit,
   });
 
   const checkErrors = () => {
-    toast.dismiss()
+    toast.dismiss();
     if (errors.vorname) toast.error(errors.vorname, { theme: "colored" });
     if (errors.nachname) toast.error(errors.nachname, { theme: "colored" });
     if (errors.strasseHausnummer)
@@ -133,7 +166,6 @@ const Fourmular = () => {
     if (errors.plzOrt) toast.error(errors.plzOrt, { theme: "colored" });
     if (errors.email) toast.error(errors.email, { theme: "colored" });
     if (errors.anliegen) toast.error(errors.anliegen, { theme: "colored" });
-
   };
 
   return (
