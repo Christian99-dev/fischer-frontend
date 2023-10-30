@@ -11,26 +11,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const Fourmular = () => {
-  const {
-    ueberschrift,
-    vorname,
-    nachname,
-    strasseHausnummer,
-    plzOrt,
-    email,
-    anliegen,
-    button,
-    anliegenPopup,
-    emailPopup,
-    emailUngueltigPopup,
-    fehlerPopup,
-    nachnamePopup,
-    nachrichtAbgeschicktPopup,
-    plzOrtPopup,
-    strasseHausnummerPopup,
-    vornamePopup,
-    bitteWartenPopup,
-  } = useStaticQuery(graphql`
+  const { strapiFormular, strapiFormularPopup } = useStaticQuery(graphql`
     query {
       strapiFormular {
         ueberschrift: Ueberschrift
@@ -55,9 +36,9 @@ const Fourmular = () => {
         bitteWartenPopup: BitteWartenPopup
       }
     }
-  `).strapiFormular;
+  `);
 
-  console.log(
+  const {
     ueberschrift,
     vorname,
     nachname,
@@ -66,6 +47,9 @@ const Fourmular = () => {
     email,
     anliegen,
     button,
+  } = strapiFormular;
+
+  const {
     anliegenPopup,
     emailPopup,
     emailUngueltigPopup,
@@ -75,9 +59,9 @@ const Fourmular = () => {
     plzOrtPopup,
     strasseHausnummerPopup,
     vornamePopup,
-    bitteWartenPopup
-  );
-
+    bitteWartenPopup,
+  } = strapiFormularPopup;
+  
   const onSubmit = (values, actions) => {
     actions.resetForm();
     send({
