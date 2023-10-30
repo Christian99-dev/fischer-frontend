@@ -9,6 +9,7 @@ import * as yup from "yup";
 import { useFormik } from "formik";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import messageFormarter from "../services/Utils/messageFormater";
 
 const Fourmular = () => {
   const { strapiFormular, strapiFormularPopup, strapiFormularAusgangsMail } =
@@ -101,7 +102,15 @@ const Fourmular = () => {
       },
       body: JSON.stringify({
         subject: betreff,
-        message: nachrichtenFormat,
+        message: messageFormarter(
+          vorname,
+          nachname,
+          strasseHausnummer,
+          plzOrt,
+          email,
+          anliegen,
+          nachrichtenFormat
+        ),
         from: email,
         to: empfaenger,
         key: process.env.GATSBY_EMAIL_FORWARD_KEY,
