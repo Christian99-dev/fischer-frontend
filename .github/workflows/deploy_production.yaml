@@ -5,6 +5,10 @@ on:
     branches:
       - production  
 
+  repository_dispatch:
+    types:
+      - strapi-webhook
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
