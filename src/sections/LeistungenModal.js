@@ -35,8 +35,8 @@ const LeistungenModal = ({ open, closeButton }) => {
         <GatsbyImgFilter
           image={hintergrund}
           background="true"
-          opacity={0.8}
-          color="var(--blue)"
+          opacity={0.6}
+          color="var(--dark-blue)"
         />
         <BoxGrid show={tablet || laptop || desktop || desktopXL} data={leistungen} />
         <Accordion show={tablet_sm || mobile} data={leistungen} />

@@ -26,7 +26,7 @@ const GridStyle = styled.div`
   display: grid;
   z-index: 120;
   position: relative;
-  padding: var(--space-xxl);
+  padding: var(--space-xxxl);
   color: white;
   width: 100%;
   height: 100%;
@@ -162,7 +162,7 @@ const BoxStyle = styled.div`
   }
 
   &:hover {
-    background-color: var(--blue);
+    background-color: var(--dark-blue);
     transition: background-color 0.2s ease-in;
 
     .text {
