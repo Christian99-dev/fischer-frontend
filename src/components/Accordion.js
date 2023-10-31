@@ -89,7 +89,7 @@ const AccordionStyle = styled.div`
       }
 
       &.open {
-        background-color: var(--blue);
+        background-color: var(--dark-blue);
         transition: background-color 0.2s ease-in;
 
         h3 {

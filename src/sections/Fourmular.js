@@ -245,7 +245,7 @@ const FourmularStyled = styled.section`
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    padding: 0 var(--space-giant);
+    padding: 0 20%;
     grid-template-areas:
       "vorname  nachname"
       "straße   textarea"

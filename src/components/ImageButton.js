@@ -7,7 +7,7 @@ import { device } from "../theme/breakpoints";
 const ImageButton = ({ text, background, onClick }) => {
   return (
     <ImageButtonStyle onClick={onClick}>
-      <div className="textbox">
+      <div className="middle-textbox">
         <h2>{text}</h2>
         <Icon name="add" />
       </div>
@@ -32,8 +32,8 @@ const ImageButtonStyle = styled.div`
   flex: 1;
   height: 100%;
   width: 100%;
-
-  .textbox {
+  
+  .middle-textbox {
     padding: var(--space-xl);
     background-color: rgba(0, 0, 0, 0.8);
     pointer-events: none;
@@ -42,7 +42,7 @@ const ImageButtonStyle = styled.div`
     z-index: 30;
     top: 40%;
     transition: top 0.2s ease;
-    width: min-content;
+
     white-space: nowrap;
 
     h2 {
@@ -58,7 +58,7 @@ const ImageButtonStyle = styled.div`
     }
   }
   &:hover {
-    .textbox {
+    .middle-textbox {
       display: flex;
       justify-content: center;
       flex-direction: column;
@@ -69,7 +69,7 @@ const ImageButtonStyle = styled.div`
 
   @media ${device.tablet} {
     align-items: center;
-    .textbox {
+    .middle-textbox {
       position: relative;
       top: unset;
       h2 {
