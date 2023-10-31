@@ -35,6 +35,7 @@ jobs:
         echo "GATSBY_EMAIL_FORWARD_URL=${{ secrets.EMAIL_FORWARD_URL }}" >> .env.production
         echo "GATSBY_EMAIL_FORWARD_KEY=${{ secrets.EMAIL_FORWARD_KEY }}" >> .env.production
 
+
     - name: 🏗️ Build Gatsby App for Production
       run: npm run build  
 
