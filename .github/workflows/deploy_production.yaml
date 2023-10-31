@@ -15,11 +15,6 @@ jobs:
 
     steps:
 
-    - name: Check inputs
-      run: |
-        echo github.ref is: ${{ github.ref }}
-        echo github.event_name is: ${{ github.event_name }}
-
     - name: 📦 Checkout Repository
       uses: actions/checkout@v3
       with:
@@ -37,6 +32,8 @@ jobs:
       run: |
         echo "GATSBY_BACKEND_API_TOKEN=${{ secrets.BACKEND_API_TOKEN }}" >> .env.production
         echo "GATSBY_BACKEND_URL=${{ secrets.BACKEND_URL }}" >> .env.production
+        echo "GATSBY_EMAIL_FORWARD_URL=${{ secrets.EMAIL_FORWARD_URL }}" >> .env.production
+        echo "GATSBY_EMAIL_FORWARD_KEY=${{ secrets.EMAIL_FORWARD_KEY }}" >> .env.production
 
     - name: 🏗️ Build Gatsby App for Production
       run: npm run build  
@@ -51,4 +48,3 @@ jobs:
         protocol: ftps
         local-dir: "public/"
         server-dir: "public_html/"
-        dangerous-clean-slate: true
