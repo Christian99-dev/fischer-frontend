@@ -1,4 +1,4 @@
-name: 🚀 Build and Deploy Gatsby App
+name: 🚀 Build and Deploy Gatsby App - Production
 
 on:
   push:
@@ -22,6 +22,8 @@ jobs:
 
     - name: 📦 Checkout Repository
       uses: actions/checkout@v3
+      with:
+        ref: production
 
     - name: 📌 Set up Node.js
       uses: actions/setup-node@v3
