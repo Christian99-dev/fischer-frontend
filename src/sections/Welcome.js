@@ -1,24 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { styled } from "styled-components";
 import Icon from "../components/Icon";
 import { Link } from "react-scroll";
 import { Fade } from "react-awesome-reveal";
 import { graphql, useStaticQuery } from "gatsby";
 import { addMediaLink } from "../services/Utils/addMediaLink";
-import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import { device } from "../theme/breakpoints";
 
 const Welcome = () => {
-  const [videoLoaded, setVideoLoaded] = useState(false);
-  const [timerDone, setTimerDone] = useState(false);
 
-  useEffect(() => {
-    setInterval(() => {
-      setTimerDone(true);
-    }, 600);
-  });
-
-  const { titel, untertitel, hintergrund, alternativeText, thumbnail } =
+  const { titel, untertitel, hintergrund, alternativeText } =
     useStaticQuery(graphql`
       query {
         strapiWillkommen {
@@ -27,17 +18,6 @@ const Welcome = () => {
           hintergrund: Hintergrund {
             url
             alternativeText
-          }
-          thumbnail: Thumbnail {
-            alternativeText
-            localFile {
-              childImageSharp {
-                gatsbyImageData(
-                  layout: CONSTRAINED
-                  placeholder: DOMINANT_COLOR
-                )
-              }
-            }
           }
         }
       }
@@ -51,21 +31,14 @@ const Welcome = () => {
           <h1>{untertitel}</h1>
         </Fade>
       </div>
-
       <div className="video">
         <div className="filter" />
-        <GatsbyImage
-          className={"thumbnail " + (videoLoaded && timerDone && "loaded")}
-          image={getImage(thumbnail.localFile)}
-          alt={thumbnail.alternativeText}
-        />
         <video
           src={addMediaLink(hintergrund.url)}
           title={alternativeText}
           autoPlay
           loop
           muted
-          onCanPlay={() => setVideoLoaded(true)}
         />
       </div>
 
