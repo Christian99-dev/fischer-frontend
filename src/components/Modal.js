@@ -14,7 +14,7 @@ const Modal = ({ nobackground, open, children, closeButton, layer = 1 }) => {
       className={open ? "open" : "close"}
     >
       <div className="box">
-        <Icon zIndex={layer * 100 + 50} name="close" onClick={closeButton} />
+        <Icon className="close-icon" zIndex={layer * 100 + 50} name="close" onClick={closeButton} />
         {children}
       </div>
     </ModalStyle>
@@ -42,7 +42,7 @@ const ModalStyle = styled.div`
   bottom: 0;
   ${(props) => !props.nobackground && "background-color: rgba(0, 0, 0, 0.6);"}
   .box {
-    .icon {
+    .close-icon {
       box-sizing: content-box;
       cursor: pointer;
       position: absolute;

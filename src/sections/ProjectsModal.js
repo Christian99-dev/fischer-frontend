@@ -6,6 +6,7 @@ import ProjectModal from "./ProjectModal";
 import { graphql, useStaticQuery } from "gatsby";
 import GatsbyImgFilter from "../components/GatsbyImgFilter";
 import { device } from "../theme/breakpoints";
+import ImageButton from "../components/ImageButton";
 
 const ProjectsModal = ({ open, closeButton }) => {
   const { kategorien } = useStaticQuery(graphql`
@@ -64,17 +65,9 @@ const ProjectsModal = ({ open, closeButton }) => {
         {kategorien.map((kategorie, index) => (
           <React.Fragment key={index}>
             <BoxStyle className="auswahl" onClick={() => openModal(index)}>
-              <div className="textbox">
-                <h3>{kategorie.name}</h3>
-                <Icon name="add" className="add-icon" />
-              </div>
-
-              <GatsbyImgFilter
-                image={kategorie.bild}
-                opacity={0.6}
-                hover="true"
-                background="true"
-                color="var(--blue)"
+              <ImageButton
+                text={kategorie.name}
+                background={kategorie.bild}
               />
             </BoxStyle>
 
