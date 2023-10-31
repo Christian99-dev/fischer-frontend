@@ -103,7 +103,7 @@ const Card = ({ data, onClick }) => {
         image={hintergrund}
         color="var(--blue)"
         hover="true"
-        opacity={0.55}
+        opacity={0}
         background
       />
     </CardStyle>
@@ -114,20 +114,25 @@ const CardStyle = styled.div`
   position: relative;
   display: flex;
   justify-content: center;
+  align-items: center;
   cursor: pointer;
   background-color: black;
   flex: 1;
-
+  
   .textbox {
+    padding: var(--space-xl);
+    background-color: rgba(0,0,0,0.9);
     pointer-events: none;
     position: absolute;
-    top: 40%;
     text-align: center;
+    z-index: 30;
+    top: 40%;
+    transition: top 0.2s ease;
+
 
     h2 {
       color: white;
       position: relative;
-      z-index: 30;
       font-size: var(--fs-4);
       font-weight: 500;
       padding-bottom: var(--space-xl);
@@ -135,7 +140,15 @@ const CardStyle = styled.div`
 
     .icon {
       position: relative;
-      z-index: 30;
+    }
+  }
+  &:hover {
+    .textbox {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      transition: top 0.2s ease;
+      top: 35%;
     }
   }
 

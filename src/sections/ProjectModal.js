@@ -80,7 +80,7 @@ const TextBoxStyle = styled.div`
   position: absolute;
   z-index: 210;
   color: white;
-  background: rgba(0, 0, 0, 0.7);
+  background: var(--dark-black);
   bottom: var(--space-lg);
   padding: var(--space-lg);
   padding-left: 0px;
