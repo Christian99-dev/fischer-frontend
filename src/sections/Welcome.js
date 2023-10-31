@@ -176,7 +176,7 @@ const WelcomeStyle = styled.section`
       height: 100%;
       width: 100%;
       z-index: 32;
-      background-color: var(--black);
+      background-color: red;
       opacity: 0.4;
     }
 
