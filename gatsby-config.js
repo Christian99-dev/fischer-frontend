@@ -11,6 +11,7 @@ module.exports = {
     `gatsby-plugin-image`,
     `gatsby-transformer-sharp`,
     "babel-plugin-styled-components",
+    'gatsby-plugin-offline',
     {
       resolve: `gatsby-plugin-styled-components`,
       options: {
