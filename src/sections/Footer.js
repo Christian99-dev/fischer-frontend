@@ -64,6 +64,11 @@ const Footer = () => {
                 to="/datenschutz"
                 gatsbyLink="true"
               />
+              <HoverLink
+                text="AGB"
+                to="/agb"
+                gatsbyLink="true"
+              />
             </div>
           </div>
         </div>
